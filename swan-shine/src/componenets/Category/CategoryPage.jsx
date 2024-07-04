@@ -1,16 +1,12 @@
 import React from 'react'
-import { Category } from '../components/Category'
+import ItemsCard from './ItemsCard'
+import './CategoryPage.css'
 
 const CategoryPage = () => {
-  const initialItems = ['Item 1', 'Item 2', 'Item 3']
-
   return (
-    <div>
-      <Category
-        title="My Category"
-        description="This is a description."
-        initialItems={initialItems}
-      />
+    <div className="category-page">
+      <h1>Category</h1>
+      <ItemsCard />
     </div>
   )
 }
