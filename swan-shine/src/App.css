@@ -1,0 +1,41 @@
+/* ملف CSS لتنسيق الهيدر */
+
+.header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 20px;
+}
+
+.nav-link {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.greeting {
+  margin-right: 15px;
+  color: #333;
+}
