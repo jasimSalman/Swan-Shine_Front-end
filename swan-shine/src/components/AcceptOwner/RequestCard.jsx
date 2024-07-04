@@ -1,5 +1,4 @@
 import React from 'react'
-import './RequestCard.css'
 
 const RequestCard = () => {
   return (

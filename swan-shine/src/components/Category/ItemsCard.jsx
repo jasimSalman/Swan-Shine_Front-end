@@ -1,11 +1,11 @@
 import React from 'react'
-import './ItemsCard.css'
+// import './ItemsCard.css'
 
 const ItemsCard = () => {
   return (
     <div className="items-card">
-      <h2>Item</h2>
-      <p>Details about the item go here.</p>
+      <h2>Category Item</h2>
+      <p>Details about the category item go here.</p>
     </div>
   )
 }
