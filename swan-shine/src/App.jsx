@@ -13,14 +13,16 @@ const App = () => {
   }
 
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={<HomePage user={user} handleLogOut={handleLogOut} />}
-        />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={<HomePage user={user} handleLogOut={handleLogOut} />}
+          />
+        </Routes>
+      </Router>
+    </>
   )
 }
 

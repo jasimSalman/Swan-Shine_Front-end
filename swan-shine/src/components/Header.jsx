@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../public/logo.jpeg'
-import '../App.css'
+import '../../src/App.css'
 
 const Header = ({ user, handleLogOut }) => {
   return (
