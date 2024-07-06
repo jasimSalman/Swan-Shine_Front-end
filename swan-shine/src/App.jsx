@@ -10,9 +10,7 @@ import ItemDetailsPage from './components/ItemDetails/ItemDetailsPage'
 import LoginPage from './components/Login/LoginPage'
 import FavoriteListPage from './components/FavoriteList/FavoriteListPage'
 import MyOrdersPage from './components/MyOrder/MyOrdersPage'
-import Nav from './components/Nav/Nav'
 import './App.css'
-// import HomePage from './components/HomePage/HomePage'
 
 function App() {
   return (
