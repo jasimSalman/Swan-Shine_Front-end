@@ -11,7 +11,6 @@ import LoginPage from './components/Login/LoginPage'
 import FavoriteListPage from './components/FavoriteList/FavoriteListPage'
 import MyOrdersPage from './components/MyOrder/MyOrdersPage'
 import './App.css'
-// import HomePage from './components/HomePage/HomePage'
 
 function App() {
   return (
