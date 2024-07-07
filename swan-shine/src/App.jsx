@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AcceptOwnersPage from './components/AcceptOwner/AcceptOwnersPage'
 import MyItemsPage from './components/MyItems/MyItemsPage'
@@ -11,8 +12,30 @@ import LoginPage from './components/Login/LoginPage'
 import FavoriteListPage from './components/FavoriteList/FavoriteListPage'
 import MyOrdersPage from './components/MyOrder/MyOrdersPage'
 import './App.css'
+import { CheckSession } from './services/Auth'
+import RegistrationForm from './components/Login/RegistrationForm'
+import ConfirmMessage from './components/ConfirmMessage/ConfirmMessage'
 
 function App() {
+  const [user, setUser] = useState(null)
+
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+  }
+
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
+
   return (
     <Router>
       <div className="App">
@@ -25,8 +48,10 @@ function App() {
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/item-details" element={<ItemDetailsPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/Register/:type" element={<RegistrationForm />} />
           <Route path="/favorites" element={<FavoriteListPage />} />
           <Route path="/orders" element={<MyOrdersPage />} />
+          <Route path="/confirm-message" element={<ConfirmMessage />} />
         </Routes>
       </div>
     </Router>
