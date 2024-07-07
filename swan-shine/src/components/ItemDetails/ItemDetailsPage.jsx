@@ -7,7 +7,7 @@ const ItemDetailsPage = () => {
   const [item, setItem] = useState(null)
   const [loading, setLoading] = useState(true)
   const itemId = '1'
-
+  git
   useEffect(() => {
     const fetchItemDetails = async () => {
       try {
