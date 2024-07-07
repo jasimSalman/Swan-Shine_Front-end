@@ -10,12 +10,17 @@ import ItemDetailsPage from './components/ItemDetails/ItemDetailsPage'
 import LoginPage from './components/Login/LoginPage'
 import FavoriteListPage from './components/FavoriteList/FavoriteListPage'
 import MyOrdersPage from './components/MyOrder/MyOrdersPage'
+import NavScrollExample from './components/header/header'
 import './App.css'
 
 function App() {
+  const user = null
+  const handleLogOut = () => {}
+
   return (
     <Router>
       <div className="App">
+        <NavScrollExample user={user} handleLogOut={handleLogOut} />
         <Routes>
           <Route path="/accept-owners" element={<AcceptOwnersPage />} />
           <Route path="/my-items" element={<MyItemsPage />} />
