@@ -8,10 +8,10 @@ const Nav = ({ handleLogOut }) => {
     if (userType === 'owner') {
       return (
         <div>
-          <Link to="/all-orders" className="navButton" aria-label="All orders">
+          <Link to="/all-orders" className="navButton">
             All orders
           </Link>
-          <Link to="/myshop" className="navButton" aria-label="My shop">
+          <Link to="/myshop" className="navButton">
             My shop
           </Link>
         </div>
@@ -21,11 +21,14 @@ const Nav = ({ handleLogOut }) => {
     if (userType === 'user') {
       return (
         <div>
-          <Link to="/orders" className="navButton" aria-label="My orders">
+          <Link to="/orders" className="navButton">
             My orders
           </Link>
-          <Link to="/favorites" className="navButton" aria-label="Wish list">
+          <Link to="/favorites" className="navButton">
             Wish list
+          </Link>
+          <Link to="/cart" className="navButton">
+            My cart
           </Link>
         </div>
       )
@@ -52,33 +55,24 @@ const Nav = ({ handleLogOut }) => {
         {userId ? (
           <div>
             {userType !== 'owner' && userType !== 'admin' && (
-              <Link
-                to="/category"
-                className="navButton"
-                aria-label="Categories"
-              >
+              <Link to="/category" className="navButton">
                 Categories
               </Link>
             )}
             {renderUserLinks()}
-            <Link
-              onClick={handleLogOut}
-              to="/"
-              className="navButton"
-              aria-label="Sign Out"
-            >
+            <Link onClick={handleLogOut} to="/" className="navButton">
               Sign Out
             </Link>
           </div>
         ) : (
           <div className="guest-user-links">
-            <Link to="/category" className="navButton" aria-label="Categories">
+            <Link to="/category" className="navButton">
               Categories
             </Link>
-            <Link to="/shops" className="navButton" aria-label="All shops">
+            <Link to="/shops" className="navButton">
               All shops
             </Link>
-            <Link to="/login" className="navButton" aria-label="Sign In">
+            <Link to="/login" className="navButton">
               Sign In
             </Link>
           </div>
