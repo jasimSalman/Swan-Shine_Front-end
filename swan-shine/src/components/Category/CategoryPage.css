@@ -9,9 +9,9 @@
   align-items: center;
 }
 
-.items-card:hover {
+/* .items-card:hover { */
 
-  body {
+body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   background-color: #1c1c1c;
@@ -91,26 +91,27 @@
     height: 150px;
   }
 
-.item-card h2 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
+  .item-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
 
-.item-card p {
-  font-size: 1em;
-  color: #bbb;
-}
+  .item-card p {
+    font-size: 1em;
+    color: #bbb;
+  }
 
-.item-card button {
-  background-color: #d4af37;
-  color: #1c1c1c;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+  .item-card button {
+    background-color: #d4af37;
+    color: #1c1c1c;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
 
-.item-card button:hover {
-  background-color: #b08f26;
+  .item-card button:hover {
+    background-color: #b08f26;
+  }
 }
