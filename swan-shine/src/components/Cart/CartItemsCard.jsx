@@ -26,7 +26,7 @@ const CartItemsCard = ({ item, onRemoveItem, onUpdateQuantity }) => {
                 +
               </button>
             </div>
-            <button onClick={() => onRemoveItem(item._id)}>Remove</button>
+            <button onClick={() => onRemoveItem(item.item._id)}>Remove</button>
           </div>
         </div>
       </div>
