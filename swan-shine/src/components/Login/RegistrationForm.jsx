@@ -1,4 +1,20 @@
 import React from 'react'
+const RegistrationForm = () => {
+  return (
+    <form className="registration-form">
+      <label>
+        Name:
+        <input type="text" name="name" />
+      </label>
+      <label>
+        Email:
+        <input type="email" name="email" />
+      </label>
+      <label>
+        Password:
+        <input type="password" name="password" />
+      </label>
+      <button type="submit">Register</button>
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { RegisterUser } from '../../services/Auth'
