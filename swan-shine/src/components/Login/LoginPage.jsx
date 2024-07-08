@@ -8,7 +8,6 @@ const LoginPage = () => {
   let navigate = useNavigate()
   const initialState = { username: '', password: '' }
 
-  const [isLogin, setIsLogin] = useState(true)
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
@@ -19,20 +18,20 @@ const LoginPage = () => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
     setFormValues(initialState)
-    {
-      if (payload.type === 'user') {
-        navigate('/category')
-      } else if (payload.type === 'owner') {
-        navigate('/my-items')
-      } else {
-        navigate('/admin')
-      }
+
+    if (payload.type === 'user') {
+      navigate('/category')
+    } else if (payload.type === 'owner') {
+      navigate('/my-items')
+    } else {
+      navigate('/admin')
     }
   }
 
   return (
     <div className="login-page">
-      <h1>{isLogin ? 'Login' : 'Register'}</h1>
+      {/* <h1>{isLogin ? 'Login' : 'Register'}</h1> */}
+      <h1>Login</h1>
       <LoginForm
         handleChange={handleChange}
         handleSubmit={handleSubmit}

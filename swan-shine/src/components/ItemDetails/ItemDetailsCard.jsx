@@ -1,5 +1,5 @@
 import React from 'react'
-import './ItemDetailsCard.css'
+import './ItemDetailsPage.css'
 
 const ItemDetailsCard = ({ item }) => {
   return (

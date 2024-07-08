@@ -1,6 +1,6 @@
 import React from 'react'
 import './homepage.css'
-import NavScrollExample from '../header/header'
+
 const Home = () => {
   return (
     <div className="home-container">

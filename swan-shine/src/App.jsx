@@ -1,3 +1,4 @@
+import './App.css'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -11,11 +12,12 @@ import ItemDetailsPage from './components/ItemDetails/ItemDetailsPage'
 import LoginPage from './components/Login/LoginPage'
 import FavoriteListPage from './components/FavoriteList/FavoriteListPage'
 import MyOrdersPage from './components/MyOrder/MyOrdersPage'
-import NavScrollExample from './components/header/header'
-import './App.css'
+// import NavScrollExample from './components/header/header'
 import { CheckSession } from './services/Auth'
 import RegistrationForm from './components/Login/RegistrationForm'
 import ConfirmMessage from './components/ConfirmMessage/ConfirmMessage'
+import Home from './components/Home page /homepage'
+import Nav from './components/Nav/Nav'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -40,21 +42,27 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavScrollExample user={user} handleLogOut={handleLogOut} />
-        <Routes>
-          <Route path="/accept-owners" element={<AcceptOwnersPage />} />
-          <Route path="/my-items" element={<MyItemsPage />} />
-          <Route path="/receipt" element={<Receipt />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/shops" element={<AllShopsPage />} />
-          <Route path="/category" element={<CategoryPage />} />
-          <Route path="/item-details" element={<ItemDetailsPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/Register/:type" element={<RegistrationForm />} />
-          <Route path="/favorites" element={<FavoriteListPage />} />
-          <Route path="/orders" element={<MyOrdersPage />} />
-          <Route path="/confirm-message" element={<ConfirmMessage />} />
-        </Routes>
+        <header>
+          <Nav handleLogOut={handleLogOut} />
+        </header>
+        {/* <NavScrollExample user={user} handleLogOut={handleLogOut} /> */}
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/accept-owners" element={<AcceptOwnersPage />} />
+            <Route path="/my-items" element={<MyItemsPage />} />
+            <Route path="/receipt" element={<Receipt />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/shops" element={<AllShopsPage />} />
+            <Route path="/category" element={<CategoryPage />} />
+            <Route path="/item-details" element={<ItemDetailsPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/Register/:type" element={<RegistrationForm />} />
+            <Route path="/favorites" element={<FavoriteListPage />} />
+            <Route path="/orders" element={<MyOrdersPage />} />
+            <Route path="/confirm-message" element={<ConfirmMessage />} />
+          </Routes>
+        </main>
       </div>
     </Router>
   )
