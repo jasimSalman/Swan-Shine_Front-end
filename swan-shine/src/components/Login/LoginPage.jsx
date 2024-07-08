@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
 import LoginForm from './LoginForm'
+import RegistrationForm from './RegistrationForm'
+import './LoginPage.css'
+
+const LoginPage = () => {
+  const [isLogin, setIsLogin] = useState(true)
+
+  const toggleForm = () => {
+    setIsLogin(!isLogin)
 import './LoginPage.css'
 import { SignInUser } from '../../services/Auth'
 import { useNavigate, Link } from 'react-router-dom'
@@ -33,6 +41,10 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <h1>{isLogin ? 'Login' : 'Register'}</h1>
+      {isLogin ? <LoginForm /> : <RegistrationForm />}
+      <button onClick={toggleForm}>
+        {isLogin ? 'Switch to Register' : 'Switch to Login'}
+      </button>
       <LoginForm
         handleChange={handleChange}
         handleSubmit={handleSubmit}
