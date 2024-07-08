@@ -4,7 +4,7 @@ import './LoginPage.css'
 import { SignInUser } from '../../services/Auth'
 import { useNavigate, Link } from 'react-router-dom'
 
-const LoginPage = () => {
+const LoginPage = ({ setUser }) => {
   let navigate = useNavigate()
   const initialState = { username: '', password: '' }
 
@@ -17,14 +17,17 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
+    setUser(payload)
     setFormValues(initialState)
 
-    if (payload.type === 'user') {
-      navigate('/category')
-    } else if (payload.type === 'owner') {
-      navigate('/my-items')
-    } else {
-      navigate('/admin')
+    if (payload) {
+      if (payload.type === 'user') {
+        navigate('/category')
+      } else if (payload.type === 'owner') {
+        navigate('/my-items')
+      } else {
+        navigate('/admin')
+      }
     }
   }
 

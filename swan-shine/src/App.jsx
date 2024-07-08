@@ -44,9 +44,8 @@ function App() {
     <Router>
       <div className="App">
         <header>
-          <Nav handleLogOut={handleLogOut} />
+          <Nav user={user} handleLogOut={handleLogOut} />
         </header>
-        {/* <NavScrollExample user={user} handleLogOut={handleLogOut} /> */}
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -57,7 +56,7 @@ function App() {
             <Route path="/shops" element={<AllShopsPage />} />
             <Route path="/category" element={<CategoryPage />} />
             <Route path="/item-details" element={<ItemDetailsPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage setUser={setUser} />} />
             <Route path="/Register/:type" element={<RegistrationForm />} />
             <Route path="/favorites" element={<FavoriteListPage />} />
             <Route path="/orders" element={<MyOrdersPage />} />
