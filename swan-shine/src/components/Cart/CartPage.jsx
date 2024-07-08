@@ -60,6 +60,15 @@ const CartPage = () => {
       <div className="cart-checkout">
         <button>Proceed to Checkout</button>
       </div>
+import React from 'react'
+import CartItemsCard from './CartItemsCard'
+import './CartPage.css'
+
+const CartPage = () => {
+  return (
+    <div className="cart-page">
+      <h1>Cart</h1>
+      <CartItemsCard />
     </div>
   )
 }

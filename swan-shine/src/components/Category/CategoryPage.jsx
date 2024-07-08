@@ -40,6 +40,15 @@ const CategoryPage = () => {
     <div className="category-page">
       <h1>Category</h1>
       <ItemsCard items={items} />
+
+import ItemsCard from './ItemsCard'
+import './CategoryPage.css'
+
+const CategoryPage = () => {
+  return (
+    <div className="category-page">
+      <h1>Category</h1>
+      <ItemsCard />
     </div>
   )
 }

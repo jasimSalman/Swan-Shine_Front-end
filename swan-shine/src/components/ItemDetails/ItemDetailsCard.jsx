@@ -1,11 +1,13 @@
 import React from 'react'
-// import './ItemDetailsCard.css'
-// eventually or we can connect it with a single css
-const ItemDetailsCard = () => {
+
+const ItemDetailsCard = ({ item }) => {
   return (
     <div className="item-details-card">
-      <h2>Item Details</h2>
-      <p>Details about the item go here.</p>
+      <img src={item.image} alt={item.name} className="item-image" />
+      <h2>{item.name}</h2>
+      <p>Category: {item.category.name}</p>
+      <p>Price: ${item.price}</p>
+      <button>Add to Cart</button>
     </div>
   )
 }

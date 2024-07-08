@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AcceptOwnersPage from './components/AcceptOwner/AcceptOwnersPage'
 import MyItemsPage from './components/MyItems/MyItemsPage'
@@ -11,11 +12,11 @@ import LoginPage from './components/Login/LoginPage'
 import FavoriteListPage from './components/FavoriteList/FavoriteListPage'
 import MyOrdersPage from './components/MyOrder/MyOrdersPage'
 import './App.css'
+import { CheckSession } from './services/Auth'
+import RegistrationForm from './components/Login/RegistrationForm'
+import ConfirmMessage from './components/ConfirmMessage/ConfirmMessage'
 
 function App() {
-  return (
-    <Router>
-      <div className="App">
         <Routes>
           <Route path="/accept-owners" element={<AcceptOwnersPage />} />
           <Route path="/my-items" element={<MyItemsPage />} />
@@ -27,6 +28,10 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/favorites" element={<FavoriteListPage />} />
           <Route path="/orders" element={<MyOrdersPage />} />
+          <Route path="/Register/:type" element={<RegistrationForm />} />
+          <Route path="/favorites" element={<FavoriteListPage />} />
+          <Route path="/orders" element={<MyOrdersPage />} />
+          <Route path="/confirm-message" element={<ConfirmMessage />} />
         </Routes>
       </div>
     </Router>
