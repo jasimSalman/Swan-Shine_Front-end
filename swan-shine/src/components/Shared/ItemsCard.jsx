@@ -54,8 +54,8 @@ ItemsCard.propTypes = {
   onUpdateQuantity: PropTypes.func.isRequired
 }
 
-ItemsCard.defaultProps = {
-  items: []
-}
+// ItemsCard.defaultProps = {
+//   items: []
+// }
 
 export default ItemsCard
