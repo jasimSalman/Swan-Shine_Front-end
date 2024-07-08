@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import ItemsCard from '../Category/ItemsCard'
 import './CategoryPage.css'
-import { BASE_URL } from '../../services/api'
 import axios from 'axios'
+import { BASE_URL } from '../../services/api'
 
 const CategoryPage = () => {
-  const [items, setItems] = useState([])
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
     fetchCategories()
@@ -14,6 +14,7 @@ const CategoryPage = () => {
   const fetchCategories = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/category`)
+      setCategories(response.data)
       console.log(response.data)
       setItems(response.data)
     } catch (error) {
@@ -23,8 +24,18 @@ const CategoryPage = () => {
 
   return (
     <div className="category-page">
-      <h1>Category</h1>
-      <ItemsCard items={items} />
+      <h1>Categories</h1>
+      <div className="categories-grid">
+        {categories.map((category) => (
+          <div key={category._id} className="category-card">
+            <img src={category.poster} alt={category.name} />
+            <div className="category-details">
+              <h2>{category.name}</h2>
+            </div>
+          </div>
+        ))}
+      </div>
+
     </div>
   )
 }
