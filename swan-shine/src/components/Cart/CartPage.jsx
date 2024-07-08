@@ -55,6 +55,15 @@ const CartPage = () => {
     removeItem(itemId)
   }
 
+  const handleUpdateQuantity = (itemId, newQuantity) => {
+    if (newQuantity < 1) return
+    setCartItems(
+      cartItems.map((item) =>
+        item._id === itemId ? { ...item, quantity: newQuantity } : item
+      )
+    )
+  }
+
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.item.price * item.quantity,
     0
