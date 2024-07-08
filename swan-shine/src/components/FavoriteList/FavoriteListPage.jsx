@@ -1,6 +1,7 @@
 import React from 'react'
-import ItemsCard from './ItemsCard'
 import './FavoriteListPage.css'
+import ItemsCard from '../Shared/ItemsCard'
+
 
 const FavoriteListPage = () => {
   return (

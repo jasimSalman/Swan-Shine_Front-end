@@ -1,7 +1,7 @@
 import React from 'react'
 import AddItemButton from './AddItemButton'
 import ItemsCard from './ItemsCard'
-// import '../MyItemsPage.css'
+// import './MyItemsPage.css'
 
 const MyItemsPage = () => {
   return (
