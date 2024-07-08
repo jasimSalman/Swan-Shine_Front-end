@@ -1,8 +1,7 @@
 import React from 'react'
 import AddItemButton from './AddItemButton'
-import ItemsCard from '../Shared/ItemsCard'
-
-// import '../MyItemsPage.css'
+import ItemsCard from './ItemsCard'
+// import './MyItemsPage.css'
 
 const MyItemsPage = () => {
   return (
