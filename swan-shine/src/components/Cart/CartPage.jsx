@@ -1,62 +1,58 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './CartPage.css'
-import ItemsCard from '../Shared/ItemsCard'
+import CartItemsCard from '../Cart/CartItemsCard'
+import Client from '../../services/api'
+import { BASE_URL } from '../../services/api'
 
 const CartPage = () => {
-  const initialItems = [
-    {
-      id: 1,
-      title: 'Gold Necklace',
-      description:
-        'Really huge description to show case my css cause I can and will flex my css the second i have a chance to do so and no one can stop me now :D',
-      price: 29.99,
-      quantity: 1
-    },
-    {
-      id: 2,
-      title: 'Item 2',
-      description: 'Description of Item 2',
-      price: 49.99,
-      quantity: 2
-    },
-    {
-      id: 3,
-      title: 'Item 3',
-      description: 'Description of Item 3',
-      price: 19.99,
-      quantity: 1
-    }
-  ]
+  const id = localStorage.getItem('userId')
 
-  const [items, setItems] = useState(initialItems)
+  const [cartItems, setCartItems] = useState([])
+
+  const getCartItems = async () => {
+    try {
+      const res = await Client.get(`${BASE_URL}/cart/${id}`)
+      console.log(res.data)
+      setCartItems(res.data)
+    } catch (err) {
+      console.log('Error fetching items cart:', err)
+    }
+  }
+
+  useEffect(() => {
+    getCartItems()
+  }, [id])
 
   const handleRemoveItem = (itemId) => {
-    setItems(items.filter((item) => item.id !== itemId))
+    setCartItems(cartItems.filter((item) => item._id !== itemId))
   }
 
   const handleUpdateQuantity = (itemId, newQuantity) => {
     if (newQuantity < 1) return
-    setItems(
-      items.map((item) =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
+    setCartItems(
+      cartItems.map((item) =>
+        item._id === itemId ? { ...item, quantity: newQuantity } : item
       )
     )
   }
 
-  const totalPrice = items.reduce(
-    (total, item) => total + item.price * item.quantity,
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.item.price * item.quantity,
     0
   )
 
   return (
     <div className="cart-page">
       <h1>Cart</h1>
-      <ItemsCard
-        items={items}
-        onRemoveItem={handleRemoveItem}
-        onUpdateQuantity={handleUpdateQuantity}
-      />
-      <div className="cart-total">Total: ${totalPrice.toFixed(2)}</div>
+      {cartItems.map((item) => (
+        <CartItemsCard
+          key={item._id}
+          item={item}
+          onRemoveItem={handleRemoveItem}
+          onUpdateQuantity={handleUpdateQuantity}
+        />
+      ))}
+      <div className="cart-total">Total: ${totalPrice}</div>
       <div className="cart-checkout">
         <button>Proceed to Checkout</button>
       </div>
