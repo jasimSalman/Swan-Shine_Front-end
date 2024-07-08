@@ -47,6 +47,32 @@
   flex-grow: 1;
 }
 
+.item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.item-footer p {
+  margin: 0 10px;
+}
+
+.item-footer button {
+  background-color: #d4af37;
+  color: #1c1c1c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.item-footer button:hover {
+  background-color: #b08f26;
+}
+
 @media (max-width: 768px) {
   .items-card img {
     height: 150px;
