@@ -6,31 +6,15 @@ import { BASE_URL } from '../../services/api'
 
 const CategoryPage = () => {
   const [categories, setCategories] = useState([])
-  const categoriesGridRef = useRef(null)
 
   useEffect(() => {
     fetchCategories()
   }, [])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const { scrollLeft, scrollWidth, clientWidth } = categoriesGridRef.current
-      if (scrollLeft + clientWidth >= scrollWidth) {
-        categoriesGridRef.current.scrollLeft = 0
-      }
-    }
-
-    const grid = categoriesGridRef.current
-    grid.addEventListener('scroll', handleScroll)
-
-    return () => grid.removeEventListener('scroll', handleScroll)
-  }, [categories])
-
   const fetchCategories = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/category`)
       setCategories(response.data)
-      console.log(response.data)
     } catch (error) {
       console.error('Error fetching categories:', error)
     }
@@ -39,8 +23,8 @@ const CategoryPage = () => {
   return (
     <div className="category-page">
       <h1>Categories</h1>
-      <div className="categories-grid" ref={categoriesGridRef}>
-        {categories.concat(categories).map((category, index) => (
+      <div className="categories-grid">
+        {categories.map((category, index) => (
           <Link key={index} to={`/category-items/${category._id}`}>
             <div className="category-card">
               <img src={category.poster} alt={category.name} />

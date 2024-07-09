@@ -9,8 +9,10 @@ const ItemDetailsCard = ({ item, onAddToCart }) => {
       </div>
       <div className="item-details">
         <h2>{item.name}</h2>
-        <p>Price: ${item.price}</p>
-        <button onClick={() => onAddToCart(item)}>Add to Cart</button>
+        <p>Price: BD {item.price}</p>
+        {localStorage.getItem('userId') && (
+          <button onClick={() => onAddToCart(item)}>Add to Cart</button>
+        )}
       </div>
     </div>
   )

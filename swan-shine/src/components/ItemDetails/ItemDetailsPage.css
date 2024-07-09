@@ -26,10 +26,10 @@ body {
   align-items: center;
 }
 
-.item-image {
-  width: 400px;
-  max-width: 100%;
+.item-image img {
+  width: 100%;
   height: auto;
+  border-radius: 10px;
 }
 
 .item-image img {
