@@ -1,0 +1,88 @@
+.my-items-page {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  background-color: #2a2a2a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #d4af37;
+}
+
+.page-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #d4af37;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.add-item-container {
+  margin-bottom: 20px;
+}
+
+.items-list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.items-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  background-color: #1c1c1c;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.item-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+}
+
+.item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item-details {
+  text-align: center;
+  padding: 20px;
+}
+
+.item-title {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #d4af37;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.item-description {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.add-item-button {
+  background-color: #d4af37;
+  color: #1c1c1c;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.add-item-button:hover {
+  background-color: #b08f26;
+}
