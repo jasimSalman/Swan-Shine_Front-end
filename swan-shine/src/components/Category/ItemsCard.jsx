@@ -1,13 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom'
 import './CategoryPage.css'
 
 const ItemsCard = ({ items }) => {
-  console.log('ItemsCard received items:', items)
+  const navigate = useNavigate()
+
+  const handleCardClick = (id) => {
+    navigate(`/item-details/${id}`)
+  }
+
   return (
     <div className="items-grid">
       {items.map((item) => (
-        <div key={item._id} className="item-card">
+        <div
+          key={item._id}
+          className="item-card"
+          onClick={() => handleCardClick(item._id)}
+        >
           <img src={item.image} alt={item.title} />
           <div className="item-details">
             <h2>{item.title}</h2>
