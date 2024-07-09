@@ -41,6 +41,16 @@ const ItemDetailsPage = () => {
     }
   }
 
+  const handleAddReview = async (review) => {
+    try {
+      await Client.post(`${BASE_URL}/items/${id}/reviews`, review)
+      const updatedItem = { ...item, reviews: [...item.reviews, review] }
+      setItem(updatedItem)
+    } catch (error) {
+      console.error('Error adding review:', error)
+    }
+  }
+
   if (loading) {
     return <div>Loading...</div>
   }
@@ -52,7 +62,11 @@ const ItemDetailsPage = () => {
   return (
     <div className="item-details-page">
       <h1>Item Details</h1>
-      <ItemDetailsCard item={item} onAddToCart={handleAddToCart} />
+      <ItemDetailsCard
+        item={item}
+        onAddToCart={handleAddToCart}
+        onAddReview={handleAddReview}
+      />
       <Review reviews={item.reviews} />
       <Rating rating={item.rating} />
     </div>
