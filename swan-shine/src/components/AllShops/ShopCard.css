@@ -1,0 +1,40 @@
+.shops-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px;
+  background-color: #2a2a2a;
+}
+
+.shop {
+  border: 1px solid #b38b59;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #1c1c1c;
+  color: #d4af37;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shop img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.shop h2 {
+  margin: 0 0 10px;
+  color: #d4af37;
+  font-size: 1.5em;
+}
+
+.shop p {
+  margin: 5px 0;
+  color: #d4af37;
+  font-size: 1em;
+}

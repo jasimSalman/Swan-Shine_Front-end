@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1c1c1c;
+  color: #d4af37;
+}
+
+.item-details-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.item-details-page h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #d4af37;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.item-details-card {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item-details-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.item-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.item-details-card h2 {
+  font-size: 2em;
+  margin-top: 10px;
+}
+
+.item-details-card p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.item-details-card button {
+  background-color: #d4af37;
+  color: #1c1c1c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.2em;
+}
+
+.item-details-card button:hover {
+  background-color: #b08f26;
+}
+
+@media (max-width: 768px) {
+  .item-details-card {
+    width: 100%;
+  }
+
+  .item-details-page h1 {
+    font-size: 2em;
+  }
+
+  .item-details-card h2 {
+    font-size: 1.5em;
+  }
+
+  .item-details-card p {
+    font-size: 1em;
+  }
+
+  .item-details-card button {
+    font-size: 1em;
+    padding: 10px 15px;
+  }
+}

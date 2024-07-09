@@ -1,10 +1,10 @@
 import React from 'react'
+import './Map.css'
 
 const Map = () => {
   return (
     <div className="map">
-      <h2>Shop Location</h2>
-      <p>Map goes here.</p>
+      <p>Map placeholder</p>
     </div>
   )
 }

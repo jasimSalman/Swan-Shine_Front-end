@@ -1,0 +1,25 @@
+.all-shops-page {
+  padding: 20px;
+  text-align: center;
+  background-color: #2a2a2a;
+  color: #d4af37;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  margin: 20px auto;
+}
+
+.all-shops-page h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #d4af37;
+  border-bottom: 2px solid #d4af37;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.all-shops-page p {
+  font-size: 1em;
+  color: #d4af37;
+  margin: 10px 0;
+}
