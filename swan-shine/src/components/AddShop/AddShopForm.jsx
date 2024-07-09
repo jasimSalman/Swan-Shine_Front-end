@@ -24,6 +24,11 @@ const AddShopForm = ({
     setFormValues({ ...formValues, [event.target.name]: event.target.value })
   }
 
+  const handleImageChange = (event) => {
+    setFormValues({ ...formValues, image: e.target.files[0] })
+    setImg(URL.createObjectURL(e.target.files[0]))
+  }
+
   return (
     <form className="addshop-form" onSubmit={handleSubmit}>
       <label>
