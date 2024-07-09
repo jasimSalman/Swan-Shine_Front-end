@@ -13,7 +13,7 @@ const Nav = ({ handleLogOut }) => {
           <Link to="/all-orders" className="navButton">
             All orders
           </Link>
-          <Link to="/myshop" className="navButton">
+          <Link to="/my-shop" className="navButton">
             My shop
           </Link>
         </div>

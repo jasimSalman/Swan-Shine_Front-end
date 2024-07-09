@@ -1,17 +1,27 @@
 import React from 'react'
+
+import { useNavigate } from 'react-router-dom'
 import './CategoryPage.css'
 
 const ItemsCard = ({ items }) => {
+  const navigate = useNavigate()
+
+  const handleCardClick = (id) => {
+    navigate(`/item-details/${id}`)
+  }
+
   return (
     <div className="items-grid">
       {items.map((item) => (
-        <div key={item.id} className="items-card">
+        <div
+          key={item._id}
+          className="item-card"
+          onClick={() => handleCardClick(item._id)}
+        >
           <img src={item.image} alt={item.title} />
           <div className="item-details">
-            <div className="item-header">
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-            </div>
+            <h2>{item.title}</h2>
+            <p>${item.price}</p>
           </div>
         </div>
       ))}
