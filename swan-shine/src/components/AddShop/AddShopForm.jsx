@@ -1,0 +1,88 @@
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import './AddShop.css'
+
+const AddShopForm = ({
+  handleChange,
+  handleImageChange,
+  handleSubmit,
+  formValues
+}) => {
+  let navigate = useNavigate()
+
+  const initValues = {
+    shopname: '',
+    email: '',
+    imagefile: '',
+    location: ''
+  }
+
+  const [formValues, setFormValues] = useState(initValues)
+
+  const handleChange = (event) => {
+    setFormValues({ ...formValues, [event.target.name]: event.target.value })
+  }
+
+  return (
+    <form className="addshop-form" onSubmit={handleSubmit}>
+      <label>
+        Shop Name:
+        <input
+          onChange={handleChange}
+          type="text"
+          placeholder=" please enter your shop name"
+          value={formValues.shopname}
+          required
+          name="shopname"
+        />
+      </label>
+      <label>
+        Email:
+        <input
+          onChange={handleChange}
+          type="email"
+          name="email"
+          placeholder=" please enter your email"
+          value={formValues.email}
+          required
+        />
+      </label>
+      <label>
+        Shop Profile Image:
+        <input
+          onChange={handleImageChange}
+          type="file"
+          name="poster"
+          placeholder=" please upload your shop's image"
+          value={formValues.poster}
+          required
+        />
+      </label>
+      <label>
+        Location:
+        <input
+          onChange={handleChange}
+          type="text"
+          name="location"
+          placeholder=" please insert your location"
+          value={formValues.location}
+          required
+        />
+      </label>
+      <button
+        disabled={
+          !formValues.shopname ||
+          !formValues.email ||
+          !formValues.poster ||
+          !formValues.location
+        }
+        type="submit"
+      >
+        Create My Shop
+      </button>
+    </form>
+  )
+}
+
+export default AddShopForm
