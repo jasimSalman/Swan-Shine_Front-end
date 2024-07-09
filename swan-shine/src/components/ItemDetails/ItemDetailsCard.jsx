@@ -9,6 +9,8 @@ const ItemDetailsCard = ({ item, onAddToCart }) => {
       <p>Category: {item.category.name}</p>
       <p>Price: ${item.price}</p>
       <button onClick={() => onAddToCart(item)}>Add to Cart</button>
+
+      <button>Add Reviews</button>
     </div>
   )
 }
