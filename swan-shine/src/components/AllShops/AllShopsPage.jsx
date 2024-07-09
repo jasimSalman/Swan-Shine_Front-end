@@ -27,7 +27,7 @@ const AllShopsPage = () => {
     <div className="all-shops-page">
       <h1>All Shops</h1>
 
-      <ShopsCard />
+      <ShopsCard shops={shops} />
       <Map />
     </div>
   )
