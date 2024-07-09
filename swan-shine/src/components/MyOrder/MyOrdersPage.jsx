@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import OrderCard from './OrderCard'
 import './MyOrdersPage.css'
 import Client, { BASE_URL } from '../../services/api'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
 
 const MyOrdersPage = () => {
   const userId = localStorage.getItem('userId')
@@ -25,7 +23,13 @@ const MyOrdersPage = () => {
   return (
     <div className="my-orders-page">
       <h1>My Orders</h1>
-      <OrderCard orders={orders} />
+      {orders.length > 0 ? (
+        orders
+          .filter((order) => order.items.length > 0)
+          .map((order) => <OrderCard key={order._id} order={order} />)
+      ) : (
+        <p>You have no orders yet.</p>
+      )}
     </div>
   )
 }
