@@ -18,7 +18,7 @@ import RegistrationForm from './components/Login/RegistrationForm'
 import ConfirmMessage from './components/ConfirmMessage/ConfirmMessage'
 import Home from './components/Home page /homepage'
 import Nav from './components/Nav/Nav'
-import ItemsPage from './components/Category/itemspage'
+import ItemsPage from './components/CategoryItemsPage/itemspage'
 import AllOrders from './components//AllOrders/AllOrdersPage'
 
 function App() {

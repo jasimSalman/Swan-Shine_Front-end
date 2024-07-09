@@ -12,7 +12,6 @@ const MyItemsPage = () => {
   const getItems = async () => {
     const res = await Client.get(`users/shop/${userId}/items`)
     setItems(res.data)
-    console.log(res.data)
   }
 
   useEffect(() => {
