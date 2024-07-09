@@ -19,6 +19,8 @@ import ConfirmMessage from './components/ConfirmMessage/ConfirmMessage'
 import Home from './components/Home page /homepage'
 import Nav from './components/Nav/Nav'
 import ItemsPage from './components/Category/itemspage'
+import AllOrders from './components//AllOrders/AllOrdersPage'
+
 function App() {
   const [user, setUser] = useState(null)
 
@@ -49,7 +51,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/accept-owners" element={<AcceptOwnersPage />} />
-            <Route path="/my-items" element={<MyItemsPage />} />
+            <Route path="/my-shop" element={<MyItemsPage />} />
             <Route path="/receipt" element={<Receipt />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/shops" element={<AllShopsPage />} />
@@ -61,6 +63,7 @@ function App() {
             <Route path="/orders" element={<MyOrdersPage />} />
             <Route path="/category-items/:id" element={<ItemsPage />} />{' '}
             <Route path="/confirm-message" element={<ConfirmMessage />} />
+            <Route path="/all-orders" element={<AllOrders />} />
           </Routes>
         </main>
       </div>
