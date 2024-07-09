@@ -59,7 +59,7 @@ body {
 }
 
 .item-details-price {
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 5px;
   display: inline-block;

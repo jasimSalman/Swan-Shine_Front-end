@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import '../Cart/CartPage.css'
 
 const ItemsCard = ({ items }) => {
@@ -22,19 +22,19 @@ const ItemsCard = ({ items }) => {
   )
 }
 
-ItemsCard.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      quantity: PropTypes.number.isRequired
-    })
-  ).isRequired,
-  onRemoveItem: PropTypes.func.isRequired,
-  onUpdateQuantity: PropTypes.func.isRequired
-}
+// ItemsCard.propTypes = {
+//   items: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//       title: PropTypes.string.isRequired,
+//       description: PropTypes.string.isRequired,
+//       price: PropTypes.number.isRequired,
+//       quantity: PropTypes.number.isRequired
+//     })
+//   ).isRequired,
+//   onRemoveItem: PropTypes.func.isRequired,
+//   onUpdateQuantity: PropTypes.func.isRequired
+// }
 
 // ItemsCard.defaultProps = {
 //   items: []
