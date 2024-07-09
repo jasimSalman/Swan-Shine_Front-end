@@ -10,7 +10,7 @@ const MyOrdersPage = () => {
     const getShopOrders = async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/user/shop/${shopId}/orders`
+          `${BASE_URL}/users/shop/:shopId/orders`
         )
         setOrders(response.data)
       } catch (err) {
