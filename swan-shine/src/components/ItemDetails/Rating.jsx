@@ -1,12 +1,11 @@
 import React from 'react'
-// import './Rating.css'
-// just in case u know :D
+import './ItemDetailsPage.css'
 
-const Rating = () => {
+const Rating = ({ rating }) => {
   return (
-    <div className="rating">
+    <div className="rating-container">
       <h2>Rating</h2>
-      <p>User rating goes here.</p>
+      <p>User rating goes here: {rating}</p>
     </div>
   )
 }
