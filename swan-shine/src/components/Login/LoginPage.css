@@ -1,0 +1,114 @@
+/* LoginPage.css */
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1c1c1c;
+  color: #d4af37;
+}
+
+.login-page {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #444;
+  border-radius: 10px;
+  background-color: #2a2a2a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.login-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #d4af37;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form label {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #d4af37;
+  width: 100%;
+  text-align: left;
+}
+
+.login-form input {
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #1c1c1c;
+  color: #d4af37;
+  width: 100%;
+  font-size: 1em;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.login-form button {
+  background-color: #d4af37;
+  color: #1c1c1c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+.login-form button:hover {
+  background-color: #b08f26;
+}
+
+.options {
+  margin-top: 20px;
+}
+
+.option-link {
+  display: block;
+  color: #d4af37;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.option-link:hover {
+  text-decoration: underline;
+}
+
+.register-section {
+  margin-top: 20px;
+}
+
+.register-section span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.register-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.register-link {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: 1px solid #444;
+  width: 80%;
+  margin: 20px auto;
+}

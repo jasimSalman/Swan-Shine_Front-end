@@ -1,0 +1,35 @@
+.map {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2a2a2a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  color: #d4af37;
+
+  .map h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #d4af37;
+  }
+
+  .map p {
+    margin: 0;
+    font-size: 1em;
+    color: #d4af37;
+  }
+
+  .map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+  }
+}
