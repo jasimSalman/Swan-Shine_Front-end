@@ -56,7 +56,7 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/shops" element={<AllShopsPage />} />
             <Route path="/category" element={<CategoryPage />} />
-            <Route path="/item-details" element={<ItemDetailsPage />} />
+            <Route path="/item-details/:id" element={<ItemDetailsPage />} />
             <Route path="/login" element={<LoginPage setUser={setUser} />} />
             <Route path="/Register/:type" element={<RegistrationForm />} />
             <Route path="/favorites" element={<FavoriteListPage />} />

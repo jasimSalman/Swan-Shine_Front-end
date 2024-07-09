@@ -6,26 +6,25 @@ import './CategoryPage.css'
 import { BASE_URL } from '../../services/api'
 
 const ItemsPage = () => {
-  const { categoryId } = useParams()
+  const { id } = useParams()
   const [items, setItems] = useState([])
 
   useEffect(() => {
     fetchItems()
-  }, [categoryId])
+  }, [id])
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/items/${categoryId}`)
+      const response = await axios.get(`${BASE_URL}/items/${id}`)
       console.log('Fetched items:', response.data)
       setItems(response.data)
     } catch (error) {
-      console.error(`Error fetching items for category ${categoryId}:`, error)
+      console.error(`Error fetching items for category ${id}:`, error)
     }
   }
 
   return (
     <div className="items-page">
-      <h1>Items for Category {categoryId}</h1>
       {items.length > 0 ? (
         <ItemsCard items={items} />
       ) : (
