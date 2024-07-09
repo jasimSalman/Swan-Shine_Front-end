@@ -1,4 +1,6 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
+import './Nav.css'
 
 const Nav = ({ handleLogOut }) => {
   const userId = localStorage.getItem('userId')
@@ -7,11 +9,11 @@ const Nav = ({ handleLogOut }) => {
   const renderUserLinks = () => {
     if (userType === 'owner') {
       return (
-        <div>
+        <div className="nav-section">
           <Link to="/all-orders" className="navButton">
             All orders
           </Link>
-          <Link to="/myshop" className="navButton">
+          <Link to="/my-shop" className="navButton">
             My shop
           </Link>
         </div>
@@ -20,7 +22,7 @@ const Nav = ({ handleLogOut }) => {
 
     if (userType === 'user') {
       return (
-        <div>
+        <div className="nav-section">
           <Link to="/orders" className="navButton">
             My orders
           </Link>
@@ -38,22 +40,16 @@ const Nav = ({ handleLogOut }) => {
   }
 
   return (
-    <div className="navbar">
-      <div className="logo">
-        <div className="logo-container">
-          <Link to="/" aria-label="Home">
-            <img
-              // src={logo}
-              alt="Logo"
-              style={{ height: '55px', width: '55px' }}
-            />
-          </Link>
-        </div>
+    <nav className="navbar">
+      <div className="logo-container">
+        <Link to="/" aria-label="Home">
+          <img src="path/to/your/logo.png" alt="Logo" className="logo" />
+        </Link>
       </div>
 
       <div className="nav-links-container">
         {userId ? (
-          <div>
+          <div className="nav-section">
             {userType !== 'owner' && userType !== 'admin' && (
               <Link to="/category" className="navButton">
                 Categories
@@ -65,7 +61,7 @@ const Nav = ({ handleLogOut }) => {
             </Link>
           </div>
         ) : (
-          <div className="guest-user-links">
+          <div className="nav-section guest-user-links">
             <Link to="/category" className="navButton">
               Categories
             </Link>
@@ -73,12 +69,13 @@ const Nav = ({ handleLogOut }) => {
               All shops
             </Link>
             <Link to="/login" className="navButton">
-              Sign In
+              Login
             </Link>
           </div>
         )}
       </div>
-    </div>
+    </nav>
   )
 }
+
 export default Nav
