@@ -12,7 +12,6 @@ import ItemDetailsPage from './components/ItemDetails/ItemDetailsPage'
 import LoginPage from './components/Login/LoginPage'
 import FavoriteListPage from './components/FavoriteList/FavoriteListPage'
 import MyOrdersPage from './components/MyOrder/MyOrdersPage'
-// import NavScrollExample from './components/header/header'
 import './App.css'
 import { CheckSession } from './services/Auth'
 import RegistrationForm from './components/Login/RegistrationForm'
@@ -44,7 +43,7 @@ function App() {
     <Router>
       <div className="App">
         <header>
-          <Nav handleLogOut={handleLogOut} />
+          <Nav user={user} handleLogOut={handleLogOut} />
         </header>
         <main>
           <Routes>
@@ -56,7 +55,7 @@ function App() {
             <Route path="/shops" element={<AllShopsPage />} />
             <Route path="/category" element={<CategoryPage />} />
             <Route path="/item-details" element={<ItemDetailsPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage setUser={setUser} />} />
             <Route path="/Register/:type" element={<RegistrationForm />} />
             <Route path="/favorites" element={<FavoriteListPage />} />
             <Route path="/orders" element={<MyOrdersPage />} />

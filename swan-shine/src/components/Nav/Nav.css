@@ -1,0 +1,57 @@
+/* Global styles for nav bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1c1c1c;
+  border-bottom: 2px solid #d4af37;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.nav-links-container {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Adjust spacing between links */
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navButton {
+  text-decoration: none;
+  color: #d4af37;
+  font-size: 1em;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 20px; /* More rounded corners */
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+  background-color: #1c1c1c;
+}
+
+.navButton:hover {
+  background-color: #d4af37;
+  color: #1c1c1c;
+  border: 1px solid #d4af37;
+}
+
+.guest-user-links {
+  display: flex;
+  gap: 10px;
+}
