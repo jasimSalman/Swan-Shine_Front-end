@@ -3,18 +3,45 @@ import { Link } from 'react-router-dom'
 const Nav = ({ handleLogOut }) => {
   const userId = localStorage.getItem('userId')
   const userType = localStorage.getItem('userType')
-  if (userId) {
-    console.log(userId)
-  }
-  if (userType) {
-    console.log(userType)
+
+  const renderUserLinks = () => {
+    if (userType === 'owner') {
+      return (
+        <div>
+          <Link to="/all-orders" className="navButton">
+            All orders
+          </Link>
+          <Link to="/myshop" className="navButton">
+            My shop
+          </Link>
+        </div>
+      )
+    }
+
+    if (userType === 'user') {
+      return (
+        <div>
+          <Link to="/orders" className="navButton">
+            My orders
+          </Link>
+          <Link to="/favorites" className="navButton">
+            Wish list
+          </Link>
+          <Link to="/cart" className="navButton">
+            My cart
+          </Link>
+        </div>
+      )
+    }
+
+    return null
   }
 
   return (
     <div className="navbar">
       <div className="logo">
         <div className="logo-container">
-          <Link to="/">
+          <Link to="/" aria-label="Home">
             <img
               // src={logo}
               alt="Logo"
@@ -27,33 +54,12 @@ const Nav = ({ handleLogOut }) => {
       <div className="nav-links-container">
         {userId ? (
           <div>
-            {userType !== 'owner' && (
+            {userType !== 'owner' && userType !== 'admin' && (
               <Link to="/category" className="navButton">
                 Categories
               </Link>
             )}
-
-            {userType === 'owner' ? (
-              <Link to={`/orders/`} className="navButton">
-                All orders
-              </Link>
-            ) : (
-              <Link to={`/orders`} className="navButton">
-                My orders
-              </Link>
-            )}
-            {userType !== 'owner' && (
-              <Link to={`/favorites`} className="navButton">
-                Wish list
-              </Link>
-            )}
-
-            {userType === 'owner' && (
-              <Link to="/Myshop" className="navButton">
-                My shop
-              </Link>
-            )}
-
+            {renderUserLinks()}
             <Link onClick={handleLogOut} to="/" className="navButton">
               Sign Out
             </Link>
@@ -75,5 +81,4 @@ const Nav = ({ handleLogOut }) => {
     </div>
   )
 }
-
 export default Nav
