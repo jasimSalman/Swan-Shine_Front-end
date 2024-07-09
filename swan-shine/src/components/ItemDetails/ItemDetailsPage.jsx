@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Review from './Review'
 import Rating from './Rating'
 import ItemDetailsCard from './ItemDetailsCard'
 import './ItemDetailsPage.css'
-
-const BASE_URL = 'http://localhost:3001'
+import Client from '../../services/api'
+import { BASE_URL } from '../../services/api'
 
 const ItemDetailsPage = () => {
   const [item, setItem] = useState(null)
   const [loading, setLoading] = useState(true)
   const { id } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchItemDetails = async () => {
@@ -28,6 +29,18 @@ const ItemDetailsPage = () => {
     fetchItemDetails()
   }, [id])
 
+  const handleAddToCart = async (item) => {
+    try {
+      const userId = localStorage.getItem('userId')
+      await Client.post(`${BASE_URL}/cart/${userId}`, {
+        items: [{ item: item._id, quantity: 1 }]
+      })
+      navigate('/cart')
+    } catch (error) {
+      console.error('Error adding item to cart:', error)
+    }
+  }
+
   if (loading) {
     return <div>Loading...</div>
   }
@@ -39,7 +52,7 @@ const ItemDetailsPage = () => {
   return (
     <div className="item-details-page">
       <h1>Item Details</h1>
-      <ItemDetailsCard item={item} />
+      <ItemDetailsCard item={item} onAddToCart={handleAddToCart} />
       <Review reviews={item.reviews} />
       <Rating rating={item.rating} />
     </div>
