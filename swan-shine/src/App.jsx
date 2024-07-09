@@ -19,7 +19,7 @@ import RegistrationForm from './components/Login/RegistrationForm'
 import ConfirmMessage from './components/ConfirmMessage/ConfirmMessage'
 import Home from './components/Home page /homepage'
 import Nav from './components/Nav/Nav'
-
+import ItemsPage from './components/Category/itemspage'
 function App() {
   const [user, setUser] = useState(null)
 
@@ -61,6 +61,7 @@ function App() {
             <Route path="/Register/:type" element={<RegistrationForm />} />
             <Route path="/favorites" element={<FavoriteListPage />} />
             <Route path="/orders" element={<MyOrdersPage />} />
+            <Route path="/category-items/:id" element={<ItemsPage />} />{' '}
             <Route path="/confirm-message" element={<ConfirmMessage />} />
           </Routes>
         </main>
