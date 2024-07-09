@@ -2,36 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import '../Cart/CartPage.css'
 
-const ItemsCard = ({ items, onRemoveItem, onUpdateQuantity }) => {
+const ItemsCard = ({ items }) => {
   return (
     <div className="items-card">
       {items.map((item) => (
-        <div key={item.id} className="item-card">
-          <img
-            src={`https://via.placeholder.com/150?text=${item.title}`}
-            alt={item.title}
-          />
+        <div key={item._id} className="item-card">
+          <img src={item.image} alt={item.name} />
           <div className="item-details">
             <div className="item-header">
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
+              <h2>{item.name}</h2>
             </div>
             <div className="item-footer">
               <p>Price: ${item.price.toFixed(2)}</p>
-              <div className="quantity-control">
-                <button
-                  onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
-                >
-                  -
-                </button>
-                <p>{item.quantity}</p>
-                <button
-                  onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-                >
-                  +
-                </button>
-              </div>
-              <button onClick={() => onRemoveItem(item.id)}>Remove</button>
             </div>
           </div>
         </div>
