@@ -1,12 +1,13 @@
 import React from 'react'
-// import './Review.css'
-// when the time comes :D
+import './ItemDetailsPage.css'
 
-const Review = () => {
+const Review = ({ reviews }) => {
   return (
-    <div className="review">
+    <div className="reviews-container">
       <h2>Reviews</h2>
-      <p>User reviews go here.</p>
+      {reviews.map((review, index) => (
+        <p key={index}>{review}</p>
+      ))}
     </div>
   )
 }

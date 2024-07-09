@@ -53,8 +53,12 @@ const ItemDetailsPage = () => {
     <div className="item-details-page">
       <h1>Item Details</h1>
       <ItemDetailsCard item={item} onAddToCart={handleAddToCart} />
-      <Review reviews={item.reviews} />
-      <Rating rating={item.rating} />
+      <div className="reviews-container">
+        <Review reviews={item.reviews} />
+      </div>
+      <div className="rating-container">
+        <Rating rating={item.rating} />
+      </div>
     </div>
   )
 }
