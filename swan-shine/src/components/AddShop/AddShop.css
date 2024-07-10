@@ -1,35 +1,35 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #0f0f0f;
-  color: #ffffff;
+  background-color: #1c1c1c;
+  color: #d4af37;
 }
 
 .addshop-form {
   max-width: 600px;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 40px;
-  border: 1px solid #dfa81d;
+  border: 1px solid #d4af37;
   border-radius: 10px;
   background-color: #2a2a2a;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
 .addshop-form label {
   font-size: 1.2em;
   margin: 10px 0;
-  color: #dfa81d;
+  color: #d4af37;
   width: 100%;
   text-align: left;
 }
 
 .addshop-form input {
   padding: 10px;
-  border: 1px solid #dfa81d;
+  border: 1px solid #d4af37;
   border-radius: 5px;
-  background-color: #3c3c3c;
-  color: #ffffff;
+  background-color: #1c1c1c;
+  color: #d4af37;
   width: 100%;
   font-size: 1em;
   margin-bottom: 15px;
@@ -37,8 +37,8 @@ body {
 }
 
 .addshop-form button {
-  background-color: #c28400;
-  color: #ffffff;
+  background-color: #d4af37;
+  color: #1c1c1c;
   border: none;
   padding: 15px 30px;
   border-radius: 5px;
@@ -49,12 +49,12 @@ body {
 }
 
 .addshop-form button:hover {
-  background-color: #dfa81d;
+  background-color: #b08f26;
 }
 
 .addshop-form img {
   margin-top: 20px;
   max-width: 100%;
   border-radius: 10px;
-  border: 1px solid #dfa81d;
+  border: 1px solid #d4af37;
 }
