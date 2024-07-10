@@ -1,36 +1,36 @@
+/* AllShopsPage.css */
 .all-shops-page {
-  padding: 20px;
+  padding: 40px 20px; /* Increase padding for better spacing */
   text-align: center;
   background-color: #2a2a2a;
   color: #d4af37;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  width: 80%;
-  margin: 20px auto;
+  width: 90%; /* Slightly wider to allow for more content */
+  margin: 50px auto; /* More margin for better spacing */
 }
 
 .all-shops-page h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 2.5em; /* Larger font size for emphasis */
+  margin-bottom: 30px; /* More space below the title */
   color: #d4af37;
-  border-bottom: 2px solid #d4af37;
+  border-bottom: 3px solid #d4af37; /* Thicker border for prominence */
   display: inline-block;
-  padding-bottom: 10px;
+  padding-bottom: 15px; /* More padding for aesthetic appeal */
 }
 
 .all-shops-page p {
-  font-size: 1em;
+  font-size: 1.1em; /* Slightly larger text for better readability */
   color: #d4af37;
-  margin: 10px 0;
+  margin: 15px 0; /* Adjusted margin for better spacing */
 }
 
-/* Remove underline from links */
 .all-shops-page a {
   text-decoration: none;
+  color: #d4af37;
+  transition: color 0.3s ease; /* Smooth transition for hover effects */
 }
 
-/* Remove hover effect */
 .all-shops-page a:hover {
-  text-decoration: none;
-  color: #d4af37; /* Optional: maintain link color */
+  color: #b08f26; /* Lighter shade for hover effect */
 }

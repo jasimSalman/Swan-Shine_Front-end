@@ -1,5 +1,4 @@
-/* LoginPage.css */
-
+/* RegistrationForm.css */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -7,7 +6,7 @@ body {
   color: #d4af37;
 }
 
-.login-page {
+.registration-form {
   max-width: 400px;
   margin: 100px auto;
   padding: 20px;
@@ -18,7 +17,7 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-.login-page h1 {
+.registration-form h1 {
   font-size: 2.5em;
   margin-bottom: 20px;
   border-bottom: 2px solid #d4af37;
@@ -26,13 +25,7 @@ body {
   padding-bottom: 10px;
 }
 
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.login-form label {
+.registration-form label {
   font-size: 1.2em;
   margin: 10px 0;
   color: #d4af37;
@@ -40,7 +33,7 @@ body {
   text-align: left;
 }
 
-.login-form input {
+.registration-form input {
   padding: 10px;
   border: 1px solid #444;
   border-radius: 5px;
@@ -52,7 +45,7 @@ body {
   box-sizing: border-box;
 }
 
-.login-form button {
+.registration-form button {
   background-color: #d4af37;
   color: #1c1c1c;
   border: none;
@@ -64,21 +57,6 @@ body {
   margin-top: 20px;
 }
 
-.login-form button:hover {
+.registration-form button:hover {
   background-color: #b08f26;
-}
-
-.options {
-  margin-top: 20px;
-}
-
-.option-link {
-  display: block;
-  color: #d4af37;
-  text-decoration: none;
-  margin-bottom: 10px;
-}
-
-.option-link:hover {
-  text-decoration: underline;
 }
