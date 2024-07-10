@@ -12,7 +12,6 @@ const MyOrdersPage = () => {
       try {
         const response = await Client.get(`${BASE_URL}/cart/orders/${userId}`)
         setOrders(response.data)
-        console.log(response.data)
       } catch (err) {
         console.error('Error fetching orders', err)
       }
