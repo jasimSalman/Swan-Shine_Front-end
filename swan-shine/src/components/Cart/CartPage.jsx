@@ -3,9 +3,11 @@ import './CartPage.css'
 import CartItemsCard from '../Cart/CartItemsCard'
 import Client from '../../services/api'
 import { BASE_URL } from '../../services/api'
+import { useNavigate } from 'react-router-dom'
 
 const CartPage = () => {
   const id = localStorage.getItem('userId')
+  const navigate = useNavigate()
 
   const [cartItems, setCartItems] = useState([])
 
@@ -28,7 +30,10 @@ const CartPage = () => {
 
   const checkOut = async () => {
     try {
-      await Client.put(`${BASE_URL}/cart/checkout/${id}`)
+      const res = await Client.put(`${BASE_URL}/cart/checkout/${id}`)
+      if (res) {
+        navigate('/orders')
+      }
     } catch (err) {
       console.log('Error updating items cart:', err)
     }
@@ -51,7 +56,7 @@ const CartPage = () => {
   }, [cartItems])
 
   const handleRemoveItem = (itemId) => {
-    setCartItems(cartItems.filter((item) => item._id !== itemId))
+    setCartItems(cartItems.filter((item) => item.item._id !== itemId))
     removeItem(itemId)
   }
 

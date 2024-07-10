@@ -15,7 +15,6 @@ const AllShopsPage = () => {
       try {
         const response = await axios.get(`${BASE_URL}/shop`)
         setShops(response.data)
-        console.log(response.data)
       } catch (err) {
         console.error('Error fetching shops:', err)
       }

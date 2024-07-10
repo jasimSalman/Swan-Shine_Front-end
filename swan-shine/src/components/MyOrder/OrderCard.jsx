@@ -1,7 +1,7 @@
 import React from 'react'
-// import './OrderCard.css'
+import './MyOrdersPage.css'
 
-const OrderCard = ({ orders }) => {
+const OrderCard = ({ order }) => {
   return (
     <div className="order-card">
       {orders.map((order) => (

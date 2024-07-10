@@ -1,11 +1,16 @@
 import React from 'react'
-// import './ItemsCard.css'
+import './MyItemsPage.css'
 
-const ItemsCard = () => {
+const ItemsCard = ({ title, description, imageUrl }) => {
   return (
     <div className="items-card">
-      <h2>Item</h2>
-      <p>Details about the item go here.</p>
+      <div className="item-image">
+        <img src={imageUrl} alt={title} />
+      </div>
+      <div className="item-details">
+        <h2 className="item-title">{title}</h2>
+        <p className="item-description">{description}</p>
+      </div>
     </div>
   )
 }

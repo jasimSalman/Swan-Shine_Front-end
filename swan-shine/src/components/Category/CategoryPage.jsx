@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './CategoryPage.css'
 import axios from 'axios'
@@ -23,9 +23,9 @@ const CategoryPage = () => {
   return (
     <div className="category-page">
       <h1>Categories</h1>
-      <div className="category-grid">
-        {categories.map((category) => (
-          <Link key={category._id} to={`/category-items/${category._id}`}>
+      <div className="categories-grid">
+        {categories.map((category, index) => (
+          <Link key={index} to={`/category-items/${category._id}`}>
             <div className="category-card">
               <img src={category.poster} alt={category.name} />
               <div className="category-details">

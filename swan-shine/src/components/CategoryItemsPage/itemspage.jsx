@@ -1,31 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import ItemsCard from '../Category/ItemsCard'
-import './CategoryPage.css'
+import ItemsCard from '../Shared/ItemsCard'
 import { BASE_URL } from '../../services/api'
+// import '../Category/CategoryPage.css'
 
 const ItemsPage = () => {
-  const { categoryId } = useParams()
+  const { id } = useParams()
   const [items, setItems] = useState([])
-
-  useEffect(() => {
-    fetchItems()
-  }, [categoryId])
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/items/${categoryId}`)
-      console.log('Fetched items:', response.data)
+      const response = await axios.get(`${BASE_URL}/items/${id}`)
       setItems(response.data)
     } catch (error) {
-      console.error(`Error fetching items for category ${categoryId}:`, error)
+      console.error(`Error fetching items for category ${id}:`, error)
     }
   }
 
+  useEffect(() => {
+    fetchItems()
+  }, [id])
+
   return (
     <div className="items-page">
-      <h1>Items for Category {categoryId}</h1>
       {items.length > 0 ? (
         <ItemsCard items={items} />
       ) : (

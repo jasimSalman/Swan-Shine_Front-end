@@ -18,7 +18,11 @@ import RegistrationForm from './components/Login/RegistrationForm'
 import ConfirmMessage from './components/ConfirmMessage/ConfirmMessage'
 import Home from './components/Home page /homepage'
 import Nav from './components/Nav/Nav'
-import ItemsPage from './components/Category/itemspage'
+import ItemsPage from './components/CategoryItemsPage/itemspage'
+import AllOrders from './components//AllOrders/AllOrdersPage'
+import AddItmesForm from './components/AddItems/AddItemsForm'
+import AddShopForm from './components/AddShop/AddShopForm'
+
 function App() {
   const [user, setUser] = useState(null)
 
@@ -49,18 +53,21 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/accept-owners" element={<AcceptOwnersPage />} />
-            <Route path="/my-items" element={<MyItemsPage />} />
+            <Route path="/my-shop" element={<MyItemsPage />} />
             <Route path="/receipt" element={<Receipt />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/shops" element={<AllShopsPage />} />
             <Route path="/category" element={<CategoryPage />} />
-            <Route path="/item-details" element={<ItemDetailsPage />} />
+            <Route path="/item-details/:id" element={<ItemDetailsPage />} />
             <Route path="/login" element={<LoginPage setUser={setUser} />} />
             <Route path="/Register/:type" element={<RegistrationForm />} />
             <Route path="/favorites" element={<FavoriteListPage />} />
             <Route path="/orders" element={<MyOrdersPage />} />
             <Route path="/category-items/:id" element={<ItemsPage />} />{' '}
             <Route path="/confirm-message" element={<ConfirmMessage />} />
+            <Route path="/all-orders" element={<AllOrders />} />
+            <Route path="/add-items" element={<AddItmesForm />} />
+            <Route path="/new-shop" element={<AddShopForm />} />
           </Routes>
         </main>
       </div>
