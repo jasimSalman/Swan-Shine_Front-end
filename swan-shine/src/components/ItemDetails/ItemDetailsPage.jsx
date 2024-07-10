@@ -5,7 +5,6 @@ import Review from './Review'
 import Rating from './Rating'
 import ItemDetailsCard from './ItemDetailsCard'
 import './ItemDetailsPage.css'
-import Client from '../../services/api'
 import { BASE_URL } from '../../services/api'
 
 const ItemDetailsPage = () => {
@@ -33,7 +32,7 @@ const ItemDetailsPage = () => {
   const handleAddToCart = async (item) => {
     try {
       await Client.post(`${BASE_URL}/cart/${userId}`, {
-        items: [{ item: item._id, quantity: 1 }]
+        items: [{ item: item, quantity: 1 }]
       })
       navigate('/cart')
     } catch (error) {
@@ -41,14 +40,11 @@ const ItemDetailsPage = () => {
     }
   }
 
-  const handleAddToFavorites = async (item) => {
-    try {
-      await Client.post(`${BASE_URL}/favorites/${userId}`, {
-        item: item._id
-      })
-    } catch (error) {
-      console.error('Error adding item to favorites:', error)
-    }
+  const handleAddReview = (review) => {
+    setItem((prevItem) => ({
+      ...prevItem,
+      reviews: [...prevItem.reviews, review]
+    }))
   }
 
   if (loading) {
@@ -65,14 +61,11 @@ const ItemDetailsPage = () => {
       <ItemDetailsCard
         item={item}
         onAddToCart={handleAddToCart}
-        onAddToFavorites={handleAddToFavorites}
+        onAddReview={handleAddReview}
       />
-      <div className="reviews-container">
-        <Review reviews={item.reviews} />
-      </div>
-      <div className="rating-container">
-        <Rating rating={item.rating} />
-      </div>
+
+      <Review reviews={item.reviews} />
+      <Rating rating={item.rating} />
     </div>
   )
 }

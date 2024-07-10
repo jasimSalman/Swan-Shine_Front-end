@@ -1,14 +1,57 @@
-import React from 'react'
-import './ItemDetailsPage.css'
+import React, { useState } from 'react'
+import axios from 'axios'
+import Modal from 'react-modal'
+import './Review.css'
+import { BASE_URL } from '../../services/api'
 
-const Review = ({ reviews }) => {
+const Review = ({ isOpen, onRequestClose, itemId, onReviewSubmitted }) => {
+  const [rating, setRating] = useState(0)
+  const [review, setReview] = useState('')
+
+  const handleStarClick = (index) => {
+    setRating(index + 1)
+  }
+
+  const handleSubmit = async () => {
+    const newReview = { review: review, rating: rating }
+    const userId = localStorage.getItem('userId')
+
+    try {
+      const response = await axios.post(`${BASE_URL}/items/${itemId}/reviews`, {
+        ...newReview,
+        userId: userId
+      })
+
+      onReviewSubmitted(response.data)
+      setRating(0)
+      setReview('')
+      onRequestClose()
+    } catch (error) {
+      console.error('Error submitting review:', error)
+    }
+  }
+
   return (
-    <div className="reviews-container">
-      <h2>Reviews</h2>
-      {reviews.map((review, index) => (
-        <p key={index}>{review}</p>
-      ))}
-    </div>
+    <Modal isOpen={isOpen} onRequestClose={onRequestClose} className="modal">
+      <h2>Add a Review</h2>
+      <div className="stars">
+        {[...Array(5)].map((star, index) => (
+          <span
+            key={index}
+            className={`star ${index < rating ? 'filled' : ''}`}
+            onClick={() => handleStarClick(index)}
+          >
+            &#9733;
+          </span>
+        ))}
+      </div>
+      <textarea
+        value={review}
+        onChange={(e) => setReview(e.target.value)}
+        placeholder="Write your review here"
+      ></textarea>
+      <button onClick={handleSubmit}>Submit</button>
+    </Modal>
   )
 }
 
