@@ -1,23 +1,23 @@
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #1c1c1c;
-  color: #d4af37;
+  font-family: 'Georgia', serif;
+  background-color: #121212;
+  color: #e1b12c;
 }
 
 .item-details-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
 }
 
 .item-details-page h1 {
   font-size: 3em;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #d4af37;
+  margin-bottom: 30px;
+  border-bottom: 3px solid #e1b12c;
   display: inline-block;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .item-details-card {
@@ -25,28 +25,41 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #1f1f1f;
+  padding: 20px;
 }
 
 .item-image {
   position: relative;
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  max-width: 600px;
+  margin-bottom: 20px;
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .item-image img {
   width: 100%;
   height: auto;
   border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 5px solid #2a2a2a;
+}
+
+.item-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .heart-icon {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
 }
 
@@ -54,7 +67,7 @@ body {
   width: 100%;
   height: 100%;
   fill: none;
-  stroke: #d4af37;
+  stroke: #e1b12c;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -62,68 +75,81 @@ body {
 
 .item-details {
   background-color: #2a2a2a;
-  border: 1px solid #444;
+  border: 1px solid #3a3a3a;
   border-radius: 10px;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 30px;
   width: 100%;
-  max-width: 400px;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
 }
 
 .item-details h2 {
-  font-size: 2em;
-  margin-top: 10px;
+  font-size: 2.5em;
+  margin-top: 15px;
 }
 
 .item-details p {
   font-size: 1.2em;
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 .item-details-price {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px;
   border-radius: 5px;
   display: inline-block;
+  font-size: 1.5em;
 }
 
 .item-details button {
-  background-color: #d4af37;
-  color: #1c1c1c;
+  background-color: #e1b12c;
+  color: #121212;
   border: none;
-  padding: 10px 20px;
+  padding: 15px 30px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.2em;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.item-details button:hover {
+  background-color: #d4af37;
 }
 
 .reviews-container,
 .rating-container {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: left;
   width: 100%;
   max-width: 800px;
-  margin: 20px auto;
+  margin: 40px auto;
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .reviews-container h2,
 .rating-container h2 {
-  font-size: 2em;
-  margin-bottom: 10px;
+  font-size: 2.5em;
+  margin-bottom: 20px;
 }
 
 .reviews-container p,
 .rating-container p {
   font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
   .item-details-page h1 {
-    font-size: 2em;
+    font-size: 2.5em;
   }
 
   .item-details h2 {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 
   .item-details p {
@@ -132,7 +158,12 @@ body {
 
   .item-details button {
     font-size: 1em;
-    padding: 10px 15px;
+    padding: 10px 20px;
+  }
+
+  .reviews-container h2,
+  .rating-container h2 {
+    font-size: 2em;
   }
 }
 
@@ -145,23 +176,19 @@ body {
 
 .item-card {
   background-color: #2a2a2a;
-  border: 1px solid #444;
+  border: 1px solid #3a3a3a;
   border-radius: 10px;
   padding: 20px;
   display: flex;
   gap: 20px;
   align-items: center;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .item-card img {
   border-radius: 10px;
-  width: 100px;
+  width: 120px;
   height: auto;
-}
-
-.item-details {
-  background-color: #2a2a2a;
-  border: none;
-  padding: 0;
-  margin: 0;
 }
