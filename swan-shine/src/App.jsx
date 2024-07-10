@@ -1,6 +1,4 @@
-import './App.css'
-import React from 'react'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import AcceptOwnersPage from './components/AcceptOwner/AcceptOwnersPage'
 import MyItemsPage from './components/MyItems/MyItemsPage'
@@ -10,7 +8,7 @@ import AllShopsPage from './components/AllShops/AllShopsPage'
 import CategoryPage from './components/Category/CategoryPage'
 import ItemDetailsPage from './components/ItemDetails/ItemDetailsPage'
 import LoginPage from './components/Login/LoginPage'
-import FavoriteListPage from './components/FavoriteList/FavoriteListPage'
+import FavoriteListPage from './components/FavoriteList/FavoriteListPage' // Import FavoriteListPage
 import MyOrdersPage from './components/MyOrder/MyOrdersPage'
 import './App.css'
 import { CheckSession } from './services/Auth'
@@ -61,7 +59,11 @@ function App() {
             <Route path="/item-details/:id" element={<ItemDetailsPage />} />
             <Route path="/login" element={<LoginPage setUser={setUser} />} />
             <Route path="/Register/:type" element={<RegistrationForm />} />
-            <Route path="/favorites" element={<FavoriteListPage />} />
+            <Route
+              path="/favorites"
+              element={<FavoriteListPage userId={user ? user.id : null} />}
+            />{' '}
+            {/* Pass userId */}
             <Route path="/orders" element={<MyOrdersPage />} />
             <Route path="/category-items/:id" element={<ItemsPage />} />{' '}
             <Route path="/confirm-message" element={<ConfirmMessage />} />

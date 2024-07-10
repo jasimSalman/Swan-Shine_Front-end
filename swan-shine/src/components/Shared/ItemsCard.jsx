@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import Client, { BASE_URL } from '../../services/api'
 import '../Shared/ItemsCard.css'
 
-const ItemsCard = ({ items }) => {
-  const navigate = useNavigate('userId')
-  const userId = localStorage.getItem('userId')
+const ItemsCard = ({ items, userId }) => {
+  const navigate = useNavigate()
+  const [favoriteItems, setFavoriteItems] = useState([])
+
   const handleCardClick = (id) => {
     navigate(`/item-details/${id}`)
   }
@@ -15,18 +15,22 @@ const ItemsCard = ({ items }) => {
     e.stopPropagation()
 
     try {
-      const response = await Client.post(
-        `${BASE_URL}/wishlist/${userId}/${itemId}`
+      const token = localStorage.getItem('accessToken')
+      const BASE_URL = 'http://localhost:3001'
+      const response = await axios.post(
+        `${BASE_URL}/wishlist/${userId}/${itemId}`,
+        null,
+        { headers: { Authorization: `Bearer ${token}` } }
       )
-      if (response.data) {
-        navigate('/favorites')
-      }
       console.log('Item added to wishlist:', response.data)
+
+      // Update favorite items state with the new item added
+      setFavoriteItems([...favoriteItems, response.data])
     } catch (error) {
       console.error('Error adding item to wishlist:', error)
     }
   }
-  // send the items id to faviouts list
+
   return (
     <div className="items-card">
       {items.map((item) => (
