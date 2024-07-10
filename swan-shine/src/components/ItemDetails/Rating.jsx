@@ -1,13 +1,12 @@
+// Rating.jsx
 import React from 'react'
-import './ItemDetailsPage.css'
 
 const Rating = ({ rating }) => {
-  return (
-    <div className="rating-container">
-      <h2>Rating</h2>
-      <p>User rating goes here: {rating}</p>
-    </div>
-  )
+  const stars = [...Array(rating)].map((_, index) => (
+    <span key={index}>&#9733;</span>
+  ))
+
+  return <div className="rating">{stars}</div>
 }
 
 export default Rating

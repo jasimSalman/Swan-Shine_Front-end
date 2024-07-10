@@ -9,23 +9,35 @@ import Client, { BASE_URL } from '../../services/api'
 
 const ItemDetailsPage = () => {
   const [item, setItem] = useState(null)
+  const [reviews, setReviews] = useState([])
   const [loading, setLoading] = useState(true)
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
   const { id } = useParams()
   const navigate = useNavigate()
   const userId = localStorage.getItem('userId')
 
-  useEffect(() => {
-    const fetchItemDetails = async () => {
-      try {
-        const response = await axios.get(`${BASE_URL}/items/show/${id}`)
-        setItem(response.data)
-        setLoading(false)
-      } catch (error) {
-        console.error('Error fetching the item details:', error)
-        setLoading(false)
-      }
+  const fetchItemDetails = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/items/show/${id}`)
+      setItem(response.data)
+      fetchReviews()
+      setLoading(false)
+    } catch (error) {
+      console.error('Error fetching the item details:', error)
+      setLoading(false)
     }
+  }
 
+  const fetchReviews = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/items/${id}/reviews`)
+      setReviews(response.data)
+    } catch (error) {
+      console.error('Error fetching reviews:', error)
+    }
+  }
+
+  useEffect(() => {
     fetchItemDetails()
   }, [id])
 
@@ -45,6 +57,8 @@ const ItemDetailsPage = () => {
       ...prevItem,
       reviews: [...prevItem.reviews, review]
     }))
+    setIsReviewModalOpen(false)
+    fetchReviews()
   }
 
   if (loading) {
@@ -61,11 +75,31 @@ const ItemDetailsPage = () => {
       <ItemDetailsCard
         item={item}
         onAddToCart={handleAddToCart}
-        onAddReview={handleAddReview}
+        onAddReview={() => setIsReviewModalOpen(true)}
       />
-
-      <Review reviews={item.reviews} />
-      <Rating rating={item.rating} />
+      <Review
+        isOpen={isReviewModalOpen}
+        onRequestClose={() => setIsReviewModalOpen(false)}
+        itemId={id}
+        onReviewSubmitted={handleAddReview}
+      />
+      <Rating rating={item.rating} />{' '}
+      <div className="reviews-container">
+        <h2>Reviews</h2>
+        {reviews.length === 0 ? (
+          <p>No reviews available.</p>
+        ) : (
+          <ul>
+            {reviews.map((review) => (
+              <li key={review._id}>
+                <p>{review.content}</p>
+                <Rating rating={review.rating} />{' '}
+                <p>User: {review.user.username}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   )
 }
