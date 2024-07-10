@@ -1,17 +1,17 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #1c1c1c;
-  color: #d4af37;
+  background-color: #c28400;
+  color: #ffffff;
 }
 
 .register-page {
   max-width: 600px;
   margin: 50px auto;
   padding: 40px;
-  border: 1px solid #444;
+  border: 1px solid #dfa81d;
   border-radius: 10px;
-  background-color: #2a2a2a;
+  background-color: #f0cd32;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
@@ -19,7 +19,7 @@ body {
 .register-page h1 {
   font-size: 2.5em;
   margin-bottom: 20px;
-  border-bottom: 2px solid #d4af37;
+  border-bottom: 2px solid #ffffff;
   display: inline-block;
   padding-bottom: 10px;
 }
@@ -33,17 +33,17 @@ body {
 .registration-form label {
   font-size: 1.2em;
   margin: 10px 0;
-  color: #d4af37;
+  color: #ffffff;
   width: 100%;
   text-align: left;
 }
 
 .registration-form input {
   padding: 10px;
-  border: 1px solid #444;
+  border: 1px solid #dfa81d;
   border-radius: 5px;
-  background-color: #1c1c1c;
-  color: #d4af37;
+  background-color: #c28400;
+  color: #ffffff;
   width: 100%;
   font-size: 1em;
   margin-bottom: 15px;
@@ -51,29 +51,19 @@ body {
 }
 
 .registration-form button {
-  background-color: #d4af37;
-  color: #1c1c1c;
+  background-color: #dfa81d;
+  color: #ffffff;
   border: none;
   padding: 15px 30px;
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
   font-size: 1.2em;
   margin-top: 20px;
 }
 
-.registration-form button:hover {
-  background-color: #b08f26;
-}
-
 .register-page a {
-  color: #d4af37;
+  color: #ffffff;
   text-decoration: none;
   margin-top: 20px;
-}
-
-.register-page a:hover {
-  text-decoration: underline;
 }
 
 .flex-signin {
@@ -84,16 +74,12 @@ body {
 }
 
 .color {
-  color: #d4af37;
+  color: #ffffff;
   text-decoration: none;
 }
 
-.color:hover {
-  text-decoration: underline;
-}
-
 hr {
-  border: 1px solid #444;
+  border: 1px solid #dfa81d;
   width: 80%;
   margin: 20px auto;
 }

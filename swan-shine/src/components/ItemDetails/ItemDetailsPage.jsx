@@ -15,18 +15,18 @@ const ItemDetailsPage = () => {
   const navigate = useNavigate()
   const userId = localStorage.getItem('userId')
 
-  const fetchItemDetails = async () => {
-    try {
-      const response = await axios.get(`${BASE_URL}/items/show/${id}`)
-      setItem(response.data)
-      setLoading(false)
-    } catch (error) {
-      console.error('Error fetching the item details:', error)
-      setLoading(false)
-    }
-  }
-
   useEffect(() => {
+    const fetchItemDetails = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/items/show/${id}`)
+        setItem(response.data)
+        setLoading(false)
+      } catch (error) {
+        console.error('Error fetching the item details:', error)
+        setLoading(false)
+      }
+    }
+
     fetchItemDetails()
   }, [id])
 
@@ -41,6 +41,16 @@ const ItemDetailsPage = () => {
     }
   }
 
+  const handleAddToFavorites = async (item) => {
+    try {
+      await Client.post(`${BASE_URL}/favorites/${userId}`, {
+        item: item._id
+      })
+    } catch (error) {
+      console.error('Error adding item to favorites:', error)
+    }
+  }
+
   if (loading) {
     return <div>Loading...</div>
   }
@@ -52,7 +62,11 @@ const ItemDetailsPage = () => {
   return (
     <div className="item-details-page">
       <h1>Item Details</h1>
-      <ItemDetailsCard item={item} onAddToCart={handleAddToCart} />
+      <ItemDetailsCard
+        item={item}
+        onAddToCart={handleAddToCart}
+        onAddToFavorites={handleAddToFavorites}
+      />
       <div className="reviews-container">
         <Review reviews={item.reviews} />
       </div>
