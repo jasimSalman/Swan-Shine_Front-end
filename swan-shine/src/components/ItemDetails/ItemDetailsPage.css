@@ -38,7 +38,6 @@ body {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  transition: transform 0.3s ease;
 }
 
 .item-details {
@@ -75,12 +74,7 @@ body {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
   font-size: 1.2em;
-}
-
-.item-details button:hover {
-  background-color: #b08f26;
 }
 
 .reviews-container,
@@ -141,7 +135,6 @@ body {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  transition: transform 0.3s ease;
 }
 
 .heart-icon {
@@ -151,7 +144,6 @@ body {
   width: 30px;
   height: 30px;
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
 .heart-icon svg {
@@ -164,58 +156,33 @@ body {
   stroke-linejoin: round;
 }
 
-.heart-icon:hover svg {
-  stroke: red;
+/* Removed the hover effects */
+.items-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
-/* Hide the heart path on hover */
-.heart-icon:hover .heart-path {
-  visibility: hidden;
-}
-
-/* Show the filled heart on hover */
-.heart-icon:hover .heart-icon-fill {
-  fill: red;
-}
-
-.item-details {
+.item-card {
   background-color: #2a2a2a;
   border: 1px solid #444;
   border-radius: 10px;
   padding: 20px;
-  margin-top: 20px;
-  width: 100%;
-  max-width: 400px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
-.item-details h2 {
-  font-size: 2em;
-  margin-top: 10px;
+.item-card img {
+  border-radius: 10px;
+  width: 100px;
+  height: auto;
 }
 
-.item-details p {
-  font-size: 1.2em;
-  margin: 10px 0;
-}
-
-.item-details-price {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 5px;
-  display: inline-block;
-}
-
-.item-details button {
-  background-color: #d4af37;
-  color: #1c1c1c;
+.item-details {
+  background-color: #2a2a2a;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 1.2em;
-}
-
-.item-details button:hover {
-  background-color: #b08f26;
+  padding: 0;
+  margin: 0;
 }

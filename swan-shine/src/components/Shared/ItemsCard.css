@@ -70,3 +70,31 @@
     height: 150px;
   }
 }
+
+.items-card {
+  background: none;
+}
+
+.item-card {
+  background: none;
+}
+
+.item-details {
+  background: none;
+}
+
+.items-card {
+  /* Ensure no background is set here */
+  background: none; /* Remove any background color */
+}
+
+.item-card {
+  /* Ensure no background or shadow is set here */
+  background: none; /* Remove any background color */
+  box-shadow: none; /* Remove any box shadow */
+  border: none; /* Optionally remove borders if they are causing the issue */
+}
+
+.item-details {
+  background: none; /* Ensure no background color is set here */
+}
