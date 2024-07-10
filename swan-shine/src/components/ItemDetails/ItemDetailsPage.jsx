@@ -62,7 +62,6 @@ const ItemDetailsPage = () => {
         item={item}
         onAddToCart={handleAddToCart}
         onAddReview={handleAddReview}
-        الريفيو
       />
 
       <Review reviews={item.reviews} />
