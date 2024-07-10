@@ -5,7 +5,7 @@ import Review from './Review'
 import Rating from './Rating'
 import ItemDetailsCard from './ItemDetailsCard'
 import './ItemDetailsPage.css'
-import { BASE_URL } from '../../services/api'
+import Client, { BASE_URL } from '../../services/api'
 
 const ItemDetailsPage = () => {
   const [item, setItem] = useState(null)
