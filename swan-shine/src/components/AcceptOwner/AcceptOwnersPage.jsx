@@ -28,9 +28,30 @@ const AcceptOwnersPage = () => {
   }, [])
 
   const handleAccept = async (userId) => {
-    const response = await axios.post(
-      `${BASE_URL}/users/admin/accept-shop-owner/:userId`
-    )
+    try {
+      const response = await Client.post(
+        `${BASE_URL}/users/admin/accept-shop-owner/:userId`
+      )
+      console.log(response.data)
+
+      setRequests(requests.filter((request) => request._id !== userId))
+    } catch (err) {
+      console.error('Error accepting shop owner:', err)
+    }
+  }
+
+  const handleReject = async (userId) => {
+    try {
+      const response = await Client.delete(
+        `${BASE_URL}/users/admin/reject-shop-owner/${userId}`
+      )
+
+      console.log('Shop owner has been rejected')
+
+      setRequests(requests.filter((request) => request._id !== userId))
+    } catch (err) {
+      console.error('Error rejecting shop owner', err)
+    }
   }
 
   return (
