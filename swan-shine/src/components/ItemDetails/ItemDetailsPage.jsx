@@ -25,8 +25,8 @@ const ItemDetailsPage = () => {
     } catch (error) {
       console.error('Error fetching the item details:', error)
       setLoading(false)
-
     }
+  }
 
   const fetchReviews = async () => {
     try {
@@ -38,7 +38,6 @@ const ItemDetailsPage = () => {
   }
 
   useEffect(() => {
-
     fetchItemDetails()
   }, [id])
 
