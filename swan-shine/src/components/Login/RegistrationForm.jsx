@@ -1,5 +1,5 @@
 import React from 'react'
-import './LoginPage.css'
+import './RegistrationForm.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { RegisterUser } from '../../services/Auth'
