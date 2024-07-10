@@ -17,7 +17,7 @@ const OrderCard = ({ orders }) => {
             {order.items.map((item) => (
               <li key={item.item._id}>
                 <p>{item.item.name}</p>
-                <p>Quantity:{item.quantity} </p>
+                <p>Quantity:{item.quantity}</p>
               </li>
             ))}
           </ul>
