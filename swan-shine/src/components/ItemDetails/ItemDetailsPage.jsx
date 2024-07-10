@@ -6,7 +6,7 @@ import Rating from './Rating'
 import ItemDetailsCard from './ItemDetailsCard'
 import './ItemDetailsPage.css'
 import Client, { BASE_URL } from '../../services/api'
-// converit ratting to start
+
 const ItemDetailsPage = () => {
   const [item, setItem] = useState(null)
   const [reviews, setReviews] = useState([])
@@ -25,8 +25,8 @@ const ItemDetailsPage = () => {
     } catch (error) {
       console.error('Error fetching the item details:', error)
       setLoading(false)
+
     }
-  }
 
   const fetchReviews = async () => {
     try {
@@ -38,6 +38,7 @@ const ItemDetailsPage = () => {
   }
 
   useEffect(() => {
+
     fetchItemDetails()
   }, [id])
 
