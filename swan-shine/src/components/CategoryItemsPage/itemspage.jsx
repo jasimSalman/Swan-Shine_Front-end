@@ -3,7 +3,6 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import ItemsCard from '../Shared/ItemsCard'
 import { BASE_URL } from '../../services/api'
-// import '../Category/CategoryPage.css'
 
 const ItemsPage = () => {
   const { id } = useParams()
