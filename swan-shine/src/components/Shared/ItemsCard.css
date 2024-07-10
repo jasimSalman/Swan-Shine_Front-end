@@ -1,12 +1,13 @@
 .items-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
   background-color: #f0cd32;
   border: 1px solid #dfa81d;
   border-radius: 10px;
   padding: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .items-card img {
@@ -14,6 +15,20 @@
   height: 200px;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
+}
+
+.item-card {
+  background: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+}
+
+.item-card img {
+  border-radius: 10px;
+  width: 100px;
+  height: auto;
 }
 
 .item-details {
@@ -69,32 +84,4 @@
   .items-card img {
     height: 150px;
   }
-}
-
-.items-card {
-  background: none;
-}
-
-.item-card {
-  background: none;
-}
-
-.item-details {
-  background: none;
-}
-
-.items-card {
-  /* Ensure no background is set here */
-  background: none; /* Remove any background color */
-}
-
-.item-card {
-  /* Ensure no background or shadow is set here */
-  background: none; /* Remove any background color */
-  box-shadow: none; /* Remove any box shadow */
-  border: none; /* Optionally remove borders if they are causing the issue */
-}
-
-.item-details {
-  background: none; /* Ensure no background color is set here */
 }
