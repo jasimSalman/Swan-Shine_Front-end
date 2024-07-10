@@ -92,3 +92,22 @@ body {
   box-shadow: 0 5px 15px rgba(255, 165, 102, 0.7);
   transition: transform 0.3s ease-in-out;
 }
+
+.add-item-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #d4af37;
+  color: #1c1c1c;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.add-item-button:hover {
+  background-color: #b08f26;
+}
+
+.add-item-button:active {
+  transform: scale(0.95);
+}
