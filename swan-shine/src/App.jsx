@@ -18,7 +18,7 @@ import Home from './components/Home page /homepage'
 import Nav from './components/Nav/Nav'
 import ItemsPage from './components/CategoryItemsPage/itemspage'
 import AllOrders from './components//AllOrders/AllOrdersPage'
-import AddItmesForm from './components/AddItems/AddItemsForm'
+import AddItemsForm from './components/AddItems/AddItemsForm'
 import AddShopForm from './components/AddShop/AddShopForm'
 import ShopItemsPage from './components/ShopItems/ShopItemsPage'
 
@@ -69,7 +69,7 @@ function App() {
             <Route path="/category-items/:id" element={<ItemsPage />} />{' '}
             <Route path="/confirm-message" element={<ConfirmMessage />} />
             <Route path="/all-orders" element={<AllOrders />} />
-            <Route path="/add-items" element={<AddItmesForm />} />
+            <Route path="/add-items" element={<AddItemsForm />} />
             <Route path="/new-shop" element={<AddShopForm />} />
             <Route path="/:shopId/items" element={<ShopItemsPage />} />
           </Routes>

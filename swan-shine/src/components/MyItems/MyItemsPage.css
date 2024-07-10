@@ -81,12 +81,14 @@ body {
 }
 
 .add-item-button {
-  background-color: #d4af37;
-  color: #1c1c1c;
+  background: linear-gradient(to right, #ff9966 0%, #ff5e62 100%);
+  color: #ffffff;
   border: none;
   padding: 15px 30px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.2em;
   margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(255, 165, 102, 0.7);
+  transition: transform 0.3s ease-in-out;
 }

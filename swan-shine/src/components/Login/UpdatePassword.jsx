@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { updatePassword } from '../../services/Auth'
+import './UpdatePassword.css'
 
 const UpdatePassword = () => {
   let navigate = useNavigate()
