@@ -14,18 +14,18 @@ const ItemDetailsPage = () => {
   const navigate = useNavigate()
   const userId = localStorage.getItem('userId')
 
-  const fetchItemDetails = async () => {
-    try {
-      const response = await axios.get(`${BASE_URL}/items/show/${id}`)
-      setItem(response.data)
-      setLoading(false)
-    } catch (error) {
-      console.error('Error fetching the item details:', error)
-      setLoading(false)
-    }
-  }
-
   useEffect(() => {
+    const fetchItemDetails = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/items/show/${id}`)
+        setItem(response.data)
+        setLoading(false)
+      } catch (error) {
+        console.error('Error fetching the item details:', error)
+        setLoading(false)
+      }
+    }
+
     fetchItemDetails()
   }, [id])
 

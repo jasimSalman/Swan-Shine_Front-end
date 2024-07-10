@@ -8,7 +8,7 @@ import FavoriteListPage from '../FavoriteList/FavoriteListPage'
 import CartPage from '../Cart/CartPage'
 import RegistrationForm from '../Login/RegistrationForm'
 import LoginForm from '../Login/LoginForm'
-
+import '../header/header.css'
 // import './App.css'
 
 const App = () => {
