@@ -19,7 +19,6 @@ const Review = ({ isOpen, onRequestClose, itemId, onReviewSubmitted }) => {
     console.log('Submitting review:', newReview)
 
     try {
-      // POST request to add a new review
       const response = await Client.post(
         `${BASE_URL}/items/${itemId}/reviews/${userId}`,
         {
