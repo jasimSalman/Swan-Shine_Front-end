@@ -23,3 +23,14 @@
   color: #d4af37;
   margin: 10px 0;
 }
+
+/* Remove underline from links */
+.all-shops-page a {
+  text-decoration: none;
+}
+
+/* Remove hover effect */
+.all-shops-page a:hover {
+  text-decoration: none;
+  color: #d4af37; /* Optional: maintain link color */
+}
