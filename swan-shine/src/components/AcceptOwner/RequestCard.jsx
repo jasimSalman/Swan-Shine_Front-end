@@ -1,5 +1,4 @@
 import React from 'react'
-import AcceptOwnersPage from './AcceptOwnersPage'
 
 const RequestCard = ({ request, onAccept, onReject }) => {
   return (
