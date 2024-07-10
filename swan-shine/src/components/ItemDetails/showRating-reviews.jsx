@@ -4,8 +4,8 @@ import './ItemDetailsPage.css'
 const Rating = ({ rating }) => {
   return (
     <div className="rating-container">
-      <h2>Rating</h2>
-      <p>User rating goes here: {rating}</p>
+      <h2>Review</h2>
+      <p>all reviews about the items and shop: {rating}</p>
     </div>
   )
 }
