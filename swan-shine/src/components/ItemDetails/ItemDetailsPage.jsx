@@ -104,5 +104,5 @@ const ItemDetailsPage = () => {
     </div>
   )
 }
-
+//rating
 export default ItemDetailsPage
