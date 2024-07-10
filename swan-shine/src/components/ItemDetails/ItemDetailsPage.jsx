@@ -5,7 +5,6 @@ import Review from './Review'
 import Rating from './Rating'
 import ItemDetailsCard from './ItemDetailsCard'
 import './ItemDetailsPage.css'
-import Client from '../../services/api'
 import { BASE_URL } from '../../services/api'
 
 const ItemDetailsPage = () => {
@@ -41,6 +40,13 @@ const ItemDetailsPage = () => {
     }
   }
 
+  const handleAddReview = (review) => {
+    setItem((prevItem) => ({
+      ...prevItem,
+      reviews: [...prevItem.reviews, review]
+    }))
+  }
+
   if (loading) {
     return <div>Loading...</div>
   }
@@ -52,13 +58,15 @@ const ItemDetailsPage = () => {
   return (
     <div className="item-details-page">
       <h1>Item Details</h1>
-      <ItemDetailsCard item={item} onAddToCart={handleAddToCart} />
-      <div className="reviews-container">
-        <Review reviews={item.reviews} />
-      </div>
-      <div className="rating-container">
-        <Rating rating={item.rating} />
-      </div>
+      <ItemDetailsCard
+        item={item}
+        onAddToCart={handleAddToCart}
+        onAddReview={handleAddReview}
+        الريفيو
+      />
+
+      <Review reviews={item.reviews} />
+      <Rating rating={item.rating} />
     </div>
   )
 }
