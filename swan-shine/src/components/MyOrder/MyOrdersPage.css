@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   background-color: #1c1c1c;
-  color: #d4af37;
+  color: #ffffff;
 }
 
 .my-orders-page {
@@ -19,7 +19,7 @@ body {
 .my-orders-page h1 {
   font-size: 2.5em;
   margin-bottom: 20px;
-  border-bottom: 2px solid #d4af37;
+  border-bottom: 2px solid #dfa81d;
   display: inline-block;
   padding-bottom: 10px;
 }
@@ -31,7 +31,7 @@ body {
   padding: 20px;
   margin-bottom: 20px;
   border: 1px solid #444;
-  color: #d4af37;
+  color: #dfa81d;
 }
 
 .order {
@@ -48,12 +48,13 @@ body {
 
 .order p {
   font-size: 1.2em;
-  color: #d4af37;
+  color: #dfa81d;
 }
 
 .order ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .order-item {
@@ -78,7 +79,7 @@ body {
 .order-item p {
   margin: 0;
   font-size: 1em;
-  color: #d4af37;
+  color: #dfa81d;
 }
 
 .order-item p:first-child {
@@ -86,5 +87,5 @@ body {
 }
 
 .order-item p:nth-child(3) {
-  color: #b08f26;
+  color: #f0cd32;
 }

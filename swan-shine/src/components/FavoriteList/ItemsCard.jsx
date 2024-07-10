@@ -1,5 +1,5 @@
 import React from 'react'
-// import './ItemsCard.css'
+import '../FavoriteList/FavoriteListPage.css'
 
 const ItemsCard = () => {
   return (
