@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom'
 import Review from './Review'
-import Rating from './showRating-reviews'
+import Rating from './Rating'
 import ItemDetailsCard from './ItemDetailsCard'
 import './ItemDetailsPage.css'
 import Client, { BASE_URL } from '../../services/api'
@@ -20,8 +20,8 @@ const ItemDetailsPage = () => {
     try {
       const response = await axios.get(`${BASE_URL}/items/show/${id}`)
       setItem(response.data)
+      fetchReviews()
       setLoading(false)
-      fetchReviews() // Fetch reviews after item details are loaded
     } catch (error) {
       console.error('Error fetching the item details:', error)
       setLoading(false)
@@ -58,7 +58,7 @@ const ItemDetailsPage = () => {
       reviews: [...prevItem.reviews, review]
     }))
     setIsReviewModalOpen(false)
-    fetchReviews() // Fetch updated reviews after adding a new review
+    fetchReviews()
   }
 
   if (loading) {
@@ -83,8 +83,7 @@ const ItemDetailsPage = () => {
         itemId={id}
         onReviewSubmitted={handleAddReview}
       />
-      <Rating rating={item.rating} />
-
+      <Rating rating={item.rating} />{' '}
       <div className="reviews-container">
         <h2>Reviews</h2>
         {reviews.length === 0 ? (
@@ -94,7 +93,7 @@ const ItemDetailsPage = () => {
             {reviews.map((review) => (
               <li key={review._id}>
                 <p>{review.content}</p>
-                <p>Rating: {review.rating}</p>
+                <Rating rating={review.rating} />{' '}
                 <p>User: {review.user.username}</p>
               </li>
             ))}
@@ -104,5 +103,5 @@ const ItemDetailsPage = () => {
     </div>
   )
 }
-//rating
+
 export default ItemDetailsPage
