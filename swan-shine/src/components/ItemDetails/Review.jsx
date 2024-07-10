@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import Modal from 'react-modal'
 import './Review.css'
+import { BASE_URL } from '../../services/api'
 
-const Review = ({ isOpen, onRequestClose, onSubmitReview }) => {
+const Review = ({ isOpen, onRequestClose, itemId, onReviewSubmitted }) => {
   const [rating, setRating] = useState(0)
   const [review, setReview] = useState('')
 
@@ -10,11 +12,23 @@ const Review = ({ isOpen, onRequestClose, onSubmitReview }) => {
     setRating(index + 1)
   }
 
-  const handleSubmit = () => {
-    onSubmitReview({ rating, review })
-    setRating(0)
-    setReview('')
-    onRequestClose()
+  const handleSubmit = async () => {
+    const newReview = { review: review, rating: rating }
+    const userId = localStorage.getItem('userId')
+
+    try {
+      const response = await axios.post(`${BASE_URL}/items/${itemId}/reviews`, {
+        ...newReview,
+        userId: userId
+      })
+
+      onReviewSubmitted(response.data)
+      setRating(0)
+      setReview('')
+      onRequestClose()
+    } catch (error) {
+      console.error('Error submitting review:', error)
+    }
   }
 
   return (

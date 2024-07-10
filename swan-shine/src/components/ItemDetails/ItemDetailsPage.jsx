@@ -5,7 +5,6 @@ import Review from './Review'
 import Rating from './Rating'
 import ItemDetailsCard from './ItemDetailsCard'
 import './ItemDetailsPage.css'
-import Client from '../../services/api'
 import { BASE_URL } from '../../services/api'
 
 const ItemDetailsPage = () => {
@@ -41,14 +40,12 @@ const ItemDetailsPage = () => {
     }
   }
 
-  const handleAddReview = async (review) => {
-    try {
-      await Client.post(`${BASE_URL}/items/${id}/reviews`, review)
-      const updatedItem = { ...item, reviews: [...item.reviews, review] }
-      setItem(updatedItem)
-    } catch (error) {
-      console.error('Error adding review:', error)
-    }
+  const handleAddReview = (review) => {
+    // تحديث حالة العنصر ليتم عرض الريفيو الجديد بعد إضافته
+    setItem((prevItem) => ({
+      ...prevItem,
+      reviews: [...prevItem.reviews, review] // إضافة الريفيو الجديد إلى قائمة الريفيوهات
+    }))
   }
 
   if (loading) {
@@ -66,7 +63,9 @@ const ItemDetailsPage = () => {
         item={item}
         onAddToCart={handleAddToCart}
         onAddReview={handleAddReview}
+        الريفيو
       />
+
       <Review reviews={item.reviews} />
       <Rating rating={item.rating} />
     </div>

@@ -14,7 +14,9 @@ const ItemDetailsCard = ({ item, onAddToCart, onAddReview }) => {
   }
 
   const handleSubmitReview = (review) => {
+    // يتم إرسال الريفيو إلى الوالد (ItemDetailsPage) ليتم إضافته إلى قائمة الريفيوهات
     onAddReview(review)
+    setIsModalOpen(false) // إغلاق المودال بعد إرسال الريفيو
   }
 
   return (
@@ -29,7 +31,8 @@ const ItemDetailsCard = ({ item, onAddToCart, onAddReview }) => {
       <Review
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
-        onSubmitReview={handleSubmitReview}
+        itemId={item._id}
+        onReviewSubmitted={handleSubmitReview}
       />
     </div>
   )
