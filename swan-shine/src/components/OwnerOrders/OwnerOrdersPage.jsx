@@ -5,6 +5,7 @@ import { BASE_URL } from '../../services/api'
 import axios from 'axios'
 
 const OwnerOrdersPage = () => {
+  const shopId = localStorage.getItem('shopId')
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
@@ -21,7 +22,12 @@ const OwnerOrdersPage = () => {
     getShopOrders()
   }, [shopId])
 
-  return ()
+  return (
+    <div className="owner-orders-page">
+      <h1>All Shop's Orders</h1>
+      <OrderCard orders={orders} />
+    </div>
+  )
 }
 
 export default OwnerOrdersPage
