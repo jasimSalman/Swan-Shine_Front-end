@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Modal from 'react-modal'
 import './Review.css'
-import { BASE_URL } from '../../services/api'
+import Client, { BASE_URL } from '../../services/api'
 
 const Review = ({ isOpen, onRequestClose, itemId, onReviewSubmitted }) => {
   const [rating, setRating] = useState(0)
   const [review, setReview] = useState('')
+  const userId = localStorage.getItem('userId')
 
   const handleStarClick = (index) => {
     setRating(index + 1)
@@ -14,13 +15,15 @@ const Review = ({ isOpen, onRequestClose, itemId, onReviewSubmitted }) => {
 
   const handleSubmit = async () => {
     const newReview = { review: review, rating: rating }
-    const userId = localStorage.getItem('userId')
 
     try {
-      const response = await axios.post(`${BASE_URL}/items/${itemId}/reviews`, {
-        ...newReview,
-        userId: userId
-      })
+      const response = await Client.post(
+        `${BASE_URL}/items/${itemId}/reviews/${userId}`,
+        {
+          ...newReview,
+          userId: userId
+        }
+      )
 
       onReviewSubmitted(response.data)
       setRating(0)
