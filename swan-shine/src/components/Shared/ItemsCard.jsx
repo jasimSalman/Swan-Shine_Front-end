@@ -26,7 +26,7 @@ const ItemsCard = ({ items }) => {
       console.error('Error adding item to wishlist:', error)
     }
   }
-
+  // send the items id to faviouts list
   return (
     <div className="items-card">
       {items.map((item) => (
