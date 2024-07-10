@@ -6,7 +6,7 @@ import Rating from './Rating'
 import ItemDetailsCard from './ItemDetailsCard'
 import './ItemDetailsPage.css'
 import Client, { BASE_URL } from '../../services/api'
-
+// converit ratting to start
 const ItemDetailsPage = () => {
   const [item, setItem] = useState(null)
   const [reviews, setReviews] = useState([])
