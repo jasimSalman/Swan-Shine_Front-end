@@ -18,6 +18,7 @@ const OrderCard = ({ orders }) => {
               <li key={item.item._id}>
                 <p>{item.item.name}</p>
                 <p>Quantity:{item.quantity}</p>
+                <p>{item.date}</p>
               </li>
             ))}
           </ul>
