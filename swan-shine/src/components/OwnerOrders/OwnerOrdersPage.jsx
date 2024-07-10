@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import OrderCard from './OrderCard'
+import OrderCard from './OwnerOrderCard'
 import './OwnerOrders.css'
 import { BASE_URL } from '../../services/api'
 import axios from 'axios'
