@@ -57,8 +57,14 @@ const AcceptOwnersPage = () => {
   return (
     <div className="accept-owners-page">
       <h1>Accept Owners</h1>
-
-      <RequestCard />
+      {requests.map((request) => (
+        <RequestCard
+          key={request._id}
+          request={request}
+          onAccept={handleAccept}
+          onReject={handleReject}
+        />
+      ))}
     </div>
   )
 }
