@@ -8,7 +8,7 @@ const FavoriteListPage = ({ userId }) => {
   useEffect(() => {
     const fetchFavoriteItems = async () => {
       try {
-        const response = await Client.get(`${BASE_URL}/wishlist/${userId}`)
+        const response = await Client.get(`/wishlist/${userId}`)
         setFavoriteItems(response.data)
       } catch (error) {
         console.error('Error fetching favorite items:', error)
@@ -17,6 +17,15 @@ const FavoriteListPage = ({ userId }) => {
 
     fetchFavoriteItems()
   }, [userId])
+
+  const removeFromFavorites = async (itemId) => {
+    try {
+      await Client.delete(`${BASE_URL}/wishlist/${userId}/${itemId}`)
+      setFavoriteItems(favoriteItems.filter((item) => item._id !== itemId))
+    } catch (error) {
+      console.error('Error removing item from favorites:', error)
+    }
+  }
 
   return (
     <div>
@@ -27,6 +36,7 @@ const FavoriteListPage = ({ userId }) => {
             <img src={item.image} alt={item.title} />
             <h2>{item.name}</h2>
             <p>BD{item.price}</p>
+            <button onClick={removeFromFavorites(item._id)}>❌</button>
           </div>
         ))}
       </div>
