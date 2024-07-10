@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 import Modal from 'react-modal'
 import './Review.css'
 import Client, { BASE_URL } from '../../services/api'
 
 const Review = ({ isOpen, onRequestClose, itemId, onReviewSubmitted }) => {
   const [rating, setRating] = useState(0)
-  const [review, setReview] = useState('')
+  const [content, setContent] = useState('')
   const userId = localStorage.getItem('userId')
 
   const handleStarClick = (index) => {
@@ -14,20 +13,22 @@ const Review = ({ isOpen, onRequestClose, itemId, onReviewSubmitted }) => {
   }
 
   const handleSubmit = async () => {
-    const newReview = { review: review, rating: rating }
+    const newReview = { content: content.toString(), rating: rating }
+    console.log('Submitting review:', newReview)
 
     try {
       const response = await Client.post(
         `${BASE_URL}/items/${itemId}/reviews/${userId}`,
         {
-          ...newReview,
+          content: content.toString(),
+          rating: rating,
           userId: userId
         }
       )
 
       onReviewSubmitted(response.data)
       setRating(0)
-      setReview('')
+      setContent('')
       onRequestClose()
     } catch (error) {
       console.error('Error submitting review:', error)
@@ -49,8 +50,8 @@ const Review = ({ isOpen, onRequestClose, itemId, onReviewSubmitted }) => {
         ))}
       </div>
       <textarea
-        value={review}
-        onChange={(e) => setReview(e.target.value)}
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
         placeholder="Write your review here"
       ></textarea>
       <button onClick={handleSubmit}>Submit</button>

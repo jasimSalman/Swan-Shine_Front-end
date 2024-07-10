@@ -10,6 +10,7 @@ import Client, { BASE_URL } from '../../services/api'
 const ItemDetailsPage = () => {
   const [item, setItem] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
   const { id } = useParams()
   const navigate = useNavigate()
   const userId = localStorage.getItem('userId')
@@ -45,6 +46,7 @@ const ItemDetailsPage = () => {
       ...prevItem,
       reviews: [...prevItem.reviews, review]
     }))
+    setIsReviewModalOpen(false)
   }
 
   if (loading) {
@@ -61,10 +63,14 @@ const ItemDetailsPage = () => {
       <ItemDetailsCard
         item={item}
         onAddToCart={handleAddToCart}
-        onAddReview={handleAddReview}
+        onAddReview={() => setIsReviewModalOpen(true)}
       />
-
-      <Review reviews={item.reviews} />
+      <Review
+        isOpen={isReviewModalOpen}
+        onRequestClose={() => setIsReviewModalOpen(false)}
+        itemId={id}
+        onReviewSubmitted={handleAddReview}
+      />
       <Rating rating={item.rating} />
     </div>
   )
