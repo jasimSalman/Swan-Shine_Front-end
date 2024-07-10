@@ -21,6 +21,7 @@ import Nav from './components/Nav/Nav'
 import ItemsPage from './components/CategoryItemsPage/itemspage'
 import AllOrders from './components//AllOrders/AllOrdersPage'
 import AddItmesForm from './components/AddItems/AddItemsForm'
+import AddShopForm from './components/AddShop/AddShopForm'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -66,6 +67,7 @@ function App() {
             <Route path="/confirm-message" element={<ConfirmMessage />} />
             <Route path="/all-orders" element={<AllOrders />} />
             <Route path="/add-items" element={<AddItmesForm />} />
+            <Route path="/new-shop" element={<AddShopForm />} />
           </Routes>
         </main>
       </div>
