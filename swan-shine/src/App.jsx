@@ -20,6 +20,7 @@ import ItemsPage from './components/CategoryItemsPage/itemspage'
 import AllOrders from './components//AllOrders/AllOrdersPage'
 import AddItmesForm from './components/AddItems/AddItemsForm'
 import AddShopForm from './components/AddShop/AddShopForm'
+import ShopItemsPage from './components/ShopItems/ShopItemsPage'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -70,6 +71,7 @@ function App() {
             <Route path="/all-orders" element={<AllOrders />} />
             <Route path="/add-items" element={<AddItmesForm />} />
             <Route path="/new-shop" element={<AddShopForm />} />
+            <Route path="/:shopId/items" element={<ShopItemsPage />} />
           </Routes>
         </main>
       </div>

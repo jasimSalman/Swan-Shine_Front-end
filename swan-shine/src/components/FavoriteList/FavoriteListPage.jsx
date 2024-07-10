@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import Client, { BASE_URL } from '../../services/api'
+import './FavoriteListPage.css'
 
 const FavoriteListPage = ({ userId }) => {
   const [favoriteItems, setFavoriteItems] = useState([])
@@ -28,7 +28,7 @@ const FavoriteListPage = ({ userId }) => {
   }
 
   return (
-    <div>
+    <div className="favorite-list-page">
       <h1>Favorite Items</h1>
       <div className="favorite-items">
         {favoriteItems.map((item) => (
@@ -37,6 +37,7 @@ const FavoriteListPage = ({ userId }) => {
             <h2>{item.name}</h2>
             <p>BD{item.price}</p>
             <button onClick={removeFromFavorites(item._id)}>❌</button>
+
           </div>
         ))}
       </div>

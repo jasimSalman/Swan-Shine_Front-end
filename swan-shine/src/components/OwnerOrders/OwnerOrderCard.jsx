@@ -1,5 +1,5 @@
 import React from 'react'
-import './orderCard.css'
+import './OwnerOrders.css'
 import MyOrdersPage from '../MyOrder/MyOrdersPage'
 
 const OrderCard = () => {
