@@ -1,0 +1,53 @@
+.accept-owners-page {
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #d4af37;
+}
+
+.RequestCard {
+  background-color: #444;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.RequestCard h2 {
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.RequestCard p {
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.RequestCard button {
+  background-color: #d4af37;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.RequestCard button:hover {
+  background-color: #b08f26;
+}
+
+.RequestCard a {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+.RequestCard a:hover {
+  color: #b08f26;
+}
