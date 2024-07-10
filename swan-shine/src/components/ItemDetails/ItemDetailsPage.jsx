@@ -32,7 +32,7 @@ const ItemDetailsPage = () => {
   const handleAddToCart = async (item) => {
     try {
       await Client.post(`${BASE_URL}/cart/${userId}`, {
-        items: [{ item: item._id, quantity: 1 }]
+        items: [{ item: item, quantity: 1 }]
       })
       navigate('/cart')
     } catch (error) {
