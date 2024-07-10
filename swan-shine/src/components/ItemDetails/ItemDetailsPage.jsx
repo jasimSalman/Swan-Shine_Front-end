@@ -41,10 +41,9 @@ const ItemDetailsPage = () => {
   }
 
   const handleAddReview = (review) => {
-    // تحديث حالة العنصر ليتم عرض الريفيو الجديد بعد إضافته
     setItem((prevItem) => ({
       ...prevItem,
-      reviews: [...prevItem.reviews, review] // إضافة الريفيو الجديد إلى قائمة الريفيوهات
+      reviews: [...prevItem.reviews, review]
     }))
   }
 

@@ -1,6 +1,4 @@
 import React from 'react'
-// import './Rating.css'
-// just in case u know :D
 
 const Rating = () => {
   return (
