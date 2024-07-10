@@ -2,13 +2,9 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import './AddShop.css'
+import axios from 'axios'
 
-const AddShopForm = ({
-  handleChange,
-  handleImageChange,
-  handleSubmit,
-  formValues
-}) => {
+const AddShopForm = () => {
   let navigate = useNavigate()
 
   const initValues = {
@@ -17,16 +13,15 @@ const AddShopForm = ({
     poster: '',
     location: ''
   }
-
+  const [img, setImg] = useState(null)
   const [formValues, setFormValues] = useState(initValues)
-
   const handleChange = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value })
   }
 
   const handleImageChange = (event) => {
-    setFormValues({ ...formValues, image: e.target.files[0] })
-    setImg(URL.createObjectURL(e.target.files[0]))
+    setFormValues({ ...formValues, image: event.target.files[0] })
+    setImg(URL.createObjectURL(event.target.files[0]))
   }
 
   const handleSubmit = async (event) => {
@@ -95,6 +90,8 @@ const AddShopForm = ({
             value={formValues.poster}
             required
           />
+          {img && <img src={img} alt="shop-image" />}
+          <button type="submitimage">upload</button>
         </label>
         <label>
           Location:
@@ -115,6 +112,7 @@ const AddShopForm = ({
             !formValues.location
           }
           type="submit"
+          onClick={() => navigate('/my-items')}
         >
           Create My Shop
         </button>
