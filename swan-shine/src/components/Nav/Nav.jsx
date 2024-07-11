@@ -53,7 +53,11 @@ const Nav = ({ handleLogOut }) => {
     <nav className="navbar">
       <div className="logo-container">
         <Link to="/" aria-label="Home">
-          <img src="path/to/your/logo.png" alt="Logo" className="logo" />
+          <img
+            src="WhatsApp_Image_2024-07-11_at_05.49.00_def010cf-removebg-preview.png"
+            alt="Logo"
+            className="logo"
+          />
         </Link>
       </div>
 

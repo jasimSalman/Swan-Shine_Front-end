@@ -8,7 +8,7 @@ import AllShopsPage from './components/AllShops/AllShopsPage'
 import CategoryPage from './components/Category/CategoryPage'
 import ItemDetailsPage from './components/ItemDetails/ItemDetailsPage'
 import LoginPage from './components/Login/LoginPage'
-import FavoriteListPage from './components/FavoriteList/FavoriteListPage' // Import FavoriteListPage
+import FavoriteListPage from './components/FavoriteList/FavoriteListPage'
 import MyOrdersPage from './components/MyOrder/MyOrdersPage'
 import './App.css'
 import { CheckSession } from './services/Auth'
@@ -21,6 +21,8 @@ import AllOrders from './components//AllOrders/AllOrdersPage'
 import AddItemsForm from './components/AddItems/AddItemsForm'
 import AddShopForm from './components/AddShop/AddShopForm'
 import ShopItemsPage from './components/ShopItems/ShopItemsPage'
+import UpdateItem from './components/UpdateItem/UpdateItemForm'
+import UpdatePassword from './components/Login/UpdatePassword'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -64,7 +66,6 @@ function App() {
               path="/favorites"
               element={<FavoriteListPage userId={user ? user.id : null} />}
             />{' '}
-            {/* Pass userId */}
             <Route path="/orders" element={<MyOrdersPage />} />
             <Route path="/category-items/:id" element={<ItemsPage />} />{' '}
             <Route path="/confirm-message" element={<ConfirmMessage />} />
@@ -72,6 +73,8 @@ function App() {
             <Route path="/add-items" element={<AddItemsForm />} />
             <Route path="/new-shop" element={<AddShopForm />} />
             <Route path="/:shopId/items" element={<ShopItemsPage />} />
+            <Route path="/edit/:itemId" element={<UpdateItem />} />
+            <Route path="/update-password" element={<UpdatePassword />} />
           </Routes>
         </main>
       </div>
