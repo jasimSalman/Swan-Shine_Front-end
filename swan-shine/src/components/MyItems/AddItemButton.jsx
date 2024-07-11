@@ -1,5 +1,6 @@
 import React from 'react'
 import './MyItemsPage.css'
+import '../../App.css'
 import { Link } from 'react-router-dom'
 
 const AddItemButton = () => {
