@@ -46,7 +46,7 @@ const LoginPage = ({ setUser }) => {
       />
 
       <div>
-        <Link to="/updatePassword">
+        <Link to="/update-password">
           <div className="font">Forget your password?</div>
         </Link>
         <hr />
