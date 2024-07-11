@@ -54,7 +54,7 @@ const Nav = ({ handleLogOut }) => {
       <div className="logo-container">
         <Link to="/" aria-label="Home">
           <img
-            src="WhatsApp_Image_2024-07-11_at_05.49.00_def010cf-removebg-preview.png"
+            src="https://media.discordapp.net/attachments/698597975387013153/1260797042435817542/Project_20240711061708.png?ex=6690a03f&is=668f4ebf&hm=2580f5f966bb673866cd0b8fafbde32c382d128ded3c0580da770c1631734541&=&format=webp&quality=lossless&width=288&height=253"
             alt="Logo"
             className="logo"
           />
