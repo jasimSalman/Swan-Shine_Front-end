@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AddItemButton from './AddItemButton'
 import ItemsCard from '../Shared/ItemsCard'
+import './MyItemsPage.css'
 import Client, { BASE_URL } from '../../services/api'
 
 const MyItemsPage = () => {
