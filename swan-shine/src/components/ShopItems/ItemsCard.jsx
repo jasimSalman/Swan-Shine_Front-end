@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../Shared/ItemsCard.css'
 import Client, { BASE_URL } from '../../services/api'
+import './ShopItemsPage.css'
 
 const ItemsCard = ({ itemId, image, name, price }) => {
   const userType = localStorage.getItem('userType')
