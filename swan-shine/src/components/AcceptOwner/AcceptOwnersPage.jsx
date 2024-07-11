@@ -1,38 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import RequestCard from './RequestCard'
 import './AcceptOwnersPage.css'
-import axios from 'axios'
 import Client, { BASE_URL } from '../../services/api'
 
 const AcceptOwnersPage = () => {
   const [requests, setRequests] = useState([])
 
-  useEffect(() => {
-    const getAcceptRequests = async () => {
-      try {
-        const response = await Client.get(`${BASE_URL}/users/admin/shop-owners`)
-        const owners = response.data
+  const getAcceptRequests = async () => {
+    try {
+      const response = await Client.get(`${BASE_URL}/users/admin/shop-owners`)
+      const owners = response.data
 
-        const ownerRequests = []
-        owners.forEach((user) => {
-          if (user.state === false) {
-            ownerRequests.push(user)
-          }
-        })
-        setRequests(ownerRequests)
-      } catch (err) {
-        console.error('Error fetching requests', err)
-      }
+      const ownerRequests = []
+      owners.forEach((user) => {
+        if (user.state === false) {
+          ownerRequests.push(user)
+        }
+      })
+      setRequests(ownerRequests)
+    } catch (err) {
+      console.error('Error fetching requests', err)
     }
+  }
+
+  useEffect(() => {
     getAcceptRequests()
   }, [])
 
   const handleAccept = async (userId) => {
     try {
       const response = await Client.post(
-        `${BASE_URL}/users/admin/accept-shop-owner/:userId`
+        `${BASE_URL}/users/admin/accept-shop-owner/${userId}`
       )
-      console.log(response.data)
 
       setRequests(requests.filter((request) => request._id !== userId))
     } catch (err) {
@@ -42,11 +41,7 @@ const AcceptOwnersPage = () => {
 
   const handleReject = async (userId) => {
     try {
-      const response = await Client.delete(
-        `${BASE_URL}/users/admin/reject-shop-owner/${userId}`
-      )
-
-      console.log('Shop owner has been rejected')
+      await Client.delete(`${BASE_URL}/users/admin/reject-shop-owner/${userId}`)
 
       setRequests(requests.filter((request) => request._id !== userId))
     } catch (err) {

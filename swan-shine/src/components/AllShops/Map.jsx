@@ -1,10 +1,10 @@
 import React from 'react'
 import './Map.css'
 
-const Map = () => {
+const Map = ({ location }) => {
   return (
     <div className="map">
-      <p>Map placeholder</p>
+      <iframe src={location} width="600" height="450"></iframe>
     </div>
   )
 }

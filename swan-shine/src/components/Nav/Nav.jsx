@@ -36,6 +36,16 @@ const Nav = ({ handleLogOut }) => {
       )
     }
 
+    if (userType === 'admin') {
+      return (
+        <div className="nav-section">
+          <Link to="/accept-owners" className="navButton">
+            Shops owner's
+          </Link>
+        </div>
+      )
+    }
+
     return null
   }
 

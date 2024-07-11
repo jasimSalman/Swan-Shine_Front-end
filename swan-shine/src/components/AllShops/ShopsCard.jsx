@@ -10,8 +10,6 @@ const ShopsCard = ({ shops }) => {
           <div className="shop">
             <img src={shop.poster} alt={shop.name} className="shop-image" />
             <h2>{shop.name}</h2>
-            {/* <p>Category: {shop.category}</p> */}
-            <p>Location: {shop.location}</p>
           </div>
         </Link>
       ))}
