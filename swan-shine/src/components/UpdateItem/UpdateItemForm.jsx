@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Client, { BASE_URL } from '../../services/api'
 import { useParams, useNavigate } from 'react-router-dom'
+import './UpdateItemForm.css'
 
 const UpdateItem = () => {
   let navigate = useNavigate()
