@@ -25,10 +25,11 @@ const LoginPage = ({ setUser }) => {
       if (payload.type === 'user') {
         navigate('/category')
       } else if (payload.type === 'owner') {
-        if (ownerState) {
-          navigate('/my-items')
+        if (!ownerState) {
+          navigate('/my-shop')
+        } else {
+          navigate('/new-shop')
         }
-        navigate('/new-shop')
       } else {
         navigate('/admin')
       }
@@ -37,7 +38,6 @@ const LoginPage = ({ setUser }) => {
 
   return (
     <div className="login-page">
-      {/* <h1>{isLogin ? 'Login' : 'Register'}</h1> */}
       <h1>Login</h1>
       <LoginForm
         handleChange={handleChange}

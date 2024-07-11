@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom'
-import Review from './Review'
 import Rating from './Rating'
 import ItemDetailsCard from './ItemDetailsCard'
 import './ItemDetailsPage.css'
@@ -76,14 +75,11 @@ const ItemDetailsPage = () => {
         item={item}
         onAddToCart={handleAddToCart}
         onAddReview={() => setIsReviewModalOpen(true)}
-      />
-      <Review
-        isOpen={isReviewModalOpen}
         onRequestClose={() => setIsReviewModalOpen(false)}
-        itemId={id}
         onReviewSubmitted={handleAddReview}
+        isOpen={isReviewModalOpen}
       />
-      <Rating rating={item.rating} />{' '}
+
       <div className="reviews-container">
         <h2>Reviews</h2>
         {reviews.length === 0 ? (
@@ -93,8 +89,8 @@ const ItemDetailsPage = () => {
             {reviews.map((review) => (
               <li key={review._id}>
                 <p>{review.content}</p>
-                <Rating rating={review.rating} />{' '}
-                <p>User: {review.user.username}</p>
+                <Rating rating={review.rating} />
+                <p>{review.user.username}</p>
               </li>
             ))}
           </ul>

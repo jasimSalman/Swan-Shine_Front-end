@@ -36,8 +36,7 @@ const FavoriteListPage = ({ userId }) => {
             <img src={item.image} alt={item.title} />
             <h2>{item.name}</h2>
             <p>BD{item.price}</p>
-            <button onClick={removeFromFavorites(item._id)}>❌</button>
-
+            <button onClick={() => removeFromFavorites(item._id)}>❌</button>
           </div>
         ))}
       </div>
