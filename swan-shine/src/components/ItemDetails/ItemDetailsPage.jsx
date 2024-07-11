@@ -14,6 +14,7 @@ const ItemDetailsPage = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const userId = localStorage.getItem('userId')
+  const userType = localStorage.getItem('userType')
 
   const fetchItemDetails = async () => {
     try {
@@ -56,8 +57,18 @@ const ItemDetailsPage = () => {
       ...prevItem,
       reviews: [...prevItem.reviews, review]
     }))
+    setReviews((prevReviews) => [...prevReviews, review])
     setIsReviewModalOpen(false)
     fetchReviews()
+  }
+
+  const handleDelete = async (reviewId) => {
+    try {
+      await Client.delete(`${BASE_URL}/items/reviews/${reviewId}`)
+      setReviews(reviews.filter((review) => review._id !== reviewId))
+    } catch (error) {
+      console.error('Failed to delete review:', error)
+    }
   }
 
   if (loading) {
@@ -91,6 +102,14 @@ const ItemDetailsPage = () => {
                 <p>{review.content}</p>
                 <Rating rating={review.rating} />
                 <p>{review.user.username}</p>
+                {userType === 'user' && userId === review.user._id && (
+                  <button
+                    onClick={() => handleDelete(review._id)}
+                    className="deleteReview"
+                  >
+                    Delete Review
+                  </button>
+                )}
               </li>
             ))}
           </ul>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Review from './Review'
 import './ItemDetailsPage.css'
 import Client, { BASE_URL } from '../../services/api'
+import { Link } from 'react-router-dom'
 
 const ItemDetailsCard = ({ item, onAddToCart, onAddReview }) => {
   const userType = localStorage.getItem('userType')
@@ -30,7 +31,12 @@ const ItemDetailsCard = ({ item, onAddToCart, onAddReview }) => {
   return (
     <div className="item-details-card">
       {userType === 'owner' && (
-        <button onClick={removeItem}>Remove Item</button>
+        <>
+          <button onClick={removeItem}>Remove Item</button>
+          <Link to={`/edit/${item._id}`}>
+            <button>update Item</button>
+          </Link>
+        </>
       )}
 
       <img src={item.image} alt={item.name} className="item-image" />
