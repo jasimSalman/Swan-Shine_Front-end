@@ -17,43 +17,21 @@ const AddShopForm = () => {
     location: ''
   }
 
-  const [img, setImg] = useState(null)
   const [formValues, setFormValues] = useState(initValues)
 
   const handleChange = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value })
   }
 
-  // const handleImageChange = (event) => {
-  //   setFormValues({ ...formValues, image: event.target.files[0] })
-  //   setImg(URL.createObjectURL(event.target.files[0]))
-  // }
-
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    // const createShop = {
-    //   shopname: formValues.shopname,
-    //   email: formValues.email,
-    //   poster: formValues.poster,
-    //   location: formValues.location
-    // }
-    // if (
-    //   !createShop.shopname ||
-    //   !createShop.email ||
-    //   !createShop.poster ||
-    //   !createShop.location
-    // ) {
-    //   console.log('Please fill in all fields')
-    //   return
-    // }
     try {
       const response = await Client.post(
         `${BASE_URL}/shop/${userId}`,
         formValues
       )
 
-      console.log(response.data)
       if (response.data) {
         navigate('/my-shop')
       }
@@ -93,8 +71,6 @@ const AddShopForm = () => {
           value={formValues.poster}
           required
         />
-        {img && <img src={img} alt="shop-image" />}
-        <button type="submitimage">upload</button>
 
         <label>Location:</label>
         <input

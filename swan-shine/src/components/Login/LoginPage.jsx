@@ -25,13 +25,13 @@ const LoginPage = ({ setUser }) => {
       if (payload.type === 'user') {
         navigate('/category')
       } else if (payload.type === 'owner') {
-        if (!ownerState) {
+        if (ownerState) {
           navigate('/my-shop')
         } else {
           navigate('/new-shop')
         }
       } else {
-        navigate('/admin')
+        navigate('/accept-owners')
       }
     }
   }

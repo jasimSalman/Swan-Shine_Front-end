@@ -22,7 +22,6 @@ const ItemDetailsCard = ({ item, onAddToCart, onAddReview }) => {
   const removeItem = async () => {
     try {
       await Client.delete(`${BASE_URL}/items/${item._id}`)
-      console.log(`${BASE_URL}/items/${item._id}`)
     } catch (error) {
       console.error('Failed to remove item:', error)
     }
