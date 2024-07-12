@@ -31,12 +31,12 @@ const ShopItemsPage = () => {
               name={item.name}
               price={item.price}
             />
-            <Map location={item.shop.location} />
           </>
         ))
       ) : (
         <p>No items in this shop.</p>
       )}
+      <Map location={items[0].shop.location} />
     </div>
   )
 }
