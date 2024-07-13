@@ -46,10 +46,7 @@
 
 <div align="center" dir="auto">
   <pre>
-    <img src="swan-shine/public/1.png" height="500" />&nbsp;&nbsp;&nbsp;
-    <img src="swan-shine/public/2.png" height="500" />&nbsp;&nbsp;&nbsp;
-    <img src="swan-shine/public/3.png" height="500" />&nbsp;&nbsp;&nbsp;
-    <img src="swan-shine/public/4.png" height="500" />
+    <img src="swan-shine/public/1.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="swan-shine/public/2.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="swan-shine/public/3.png" height="500" />&nbsp;&nbsp;&nbsp;<img src="swan-shine/public/4.png" height="500" />
   </pre>
 </div>
 
@@ -58,7 +55,7 @@
 ### **_Future Updates_**
 
 - [ ] Add a real payment method.
-- [ ] Trading platform .
+- [ ] Trading platform.
 - [ ] Disabling Business Owners (temporary/permanent).
 
 ---
