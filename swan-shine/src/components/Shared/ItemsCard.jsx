@@ -1,20 +1,21 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import '../Shared/ItemsCard.css'
+import { useNavigate, useLocation } from 'react-router-dom'
+import './ItemsCard.css'
 import Client, { BASE_URL } from '../../services/api'
 
-const ItemsCard = ({ items }) => {
+const ItemsCard = ({ items, removeItemFromWishList }) => {
   const userType = localStorage.getItem('userType')
   const userId = localStorage.getItem('userId')
 
   const navigate = useNavigate()
+  const location = useLocation()
   const [favoriteItems, setFavoriteItems] = useState([])
 
   const handleCardClick = (id) => {
     navigate(`/item-details/${id}`)
   }
 
-  const handleHeartClick = async (itemId) => {
+  const handleAddToWishList = async (itemId) => {
     try {
       const response = await Client.post(
         `${BASE_URL}/wishlist/${userId}/${itemId}`
@@ -27,22 +28,24 @@ const ItemsCard = ({ items }) => {
   }
 
   return (
-    <div className="items-card">
+    <div className="items-shared-card">
       {items.map((item) => (
-        <div
-          key={item._id}
-          className="item-card"
-          onClick={() => handleCardClick(item._id)}
-        >
-          <img src={item.image} alt={item.name} />
-          <div className="item-details">
-            <h2>{item.name}</h2>
-            <p>BD{item.price}</p>
+        <div key={item._id} className="item-shared-card">
+          <div onClick={() => handleCardClick(item._id)}>
+            <img src={item.image} alt={item.name} />
+            <div className="item-shared-details">
+              <h2>{item.name}</h2>
+              <p>BD{item.price}</p>
+            </div>
           </div>
-          {userType === 'user' && (
+          {location.pathname === '/favorites' && (
+            <button onClick={() => removeItemFromWishList(item._id)}>❌</button>
+          )}
+
+          {userType === 'user' && location.pathname !== '/favorites' && (
             <span
               className="heart-icon"
-              onClick={() => handleHeartClick(item._id)}
+              onClick={() => handleAddToWishList(item._id)}
             >
               add
             </span>

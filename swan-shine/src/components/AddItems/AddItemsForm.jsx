@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Client, { BASE_URL } from '../../services/api'
+import Client from '../../services/api'
 import './AddItemsForm.css'
 
 const AddItemsForm = () => {
-  const userId = localStorage.getItem('userId')
-  const navigate = useNavigate()
   const initialState = {
     name: '',
     image: '',
     reqCategory: '',
-    price: '',
-    stock: ''
+    price: 0,
+    stock: 0
   }
+
+  const userId = localStorage.getItem('userId')
+  const navigate = useNavigate()
 
   const [formValues, setFormValues] = useState(initialState)
 
@@ -22,8 +23,7 @@ const AddItemsForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    const res = await Client.post(`${BASE_URL}/items/${userId}`, formValues)
+    const res = await Client.post(`/items/${userId}`, formValues)
     setFormValues(initialState)
     if (res) {
       navigate('/my-shop')

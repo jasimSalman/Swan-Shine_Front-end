@@ -11,7 +11,7 @@ const CartItemsCard = ({ item, onRemoveItem, onUpdateQuantity }) => {
             <h2>{item.item.name}</h2>
           </div>
           <div className="item-footer">
-            <p>Price: ${item.item.price}</p>
+            <p>Price: {item.item.price} BHD</p>
             <div className="quantity-control">
               <button
                 onClick={() => onUpdateQuantity(item._id, item.quantity - 1)}

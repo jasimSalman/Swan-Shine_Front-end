@@ -7,8 +7,9 @@ export const SignInUser = async (data) => {
     localStorage.setItem('userId', res.data.user.id)
     localStorage.setItem('userType', res.data.user.type)
     localStorage.setItem('username', res.data.user.username)
+
     if (res.data.user.type === 'owner') {
-      localStorage.setItem('ownerState', res.data.user.shop)
+      localStorage.setItem('ownerState', res.data.user.state)
       localStorage.setItem('shopId', res.data.user.shop)
     }
 

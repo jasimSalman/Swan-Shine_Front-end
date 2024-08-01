@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import './CategoryPage.css'
 import axios from 'axios'
 import { BASE_URL } from '../../services/api'
+import CategoryCard from './CategoryCard'
 
 const CategoryPage = () => {
   const [categories, setCategories] = useState([])
@@ -24,15 +24,8 @@ const CategoryPage = () => {
     <div className="category-page">
       <h1>Categories</h1>
       <div className="categories-grid">
-        {categories.map((category, index) => (
-          <Link key={index} to={`/category-items/${category._id}`}>
-            <div className="category-card">
-              <img src={category.poster} alt={category.name} />
-              <div className="category-details">
-                <h2>{category.name}</h2>
-              </div>
-            </div>
-          </Link>
+        {categories.map((category) => (
+          <CategoryCard key={category._id} category={category} />
         ))}
       </div>
     </div>

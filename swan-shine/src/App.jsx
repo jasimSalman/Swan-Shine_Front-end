@@ -8,7 +8,7 @@ import AllShopsPage from './components/AllShops/AllShopsPage'
 import CategoryPage from './components/Category/CategoryPage'
 import ItemDetailsPage from './components/ItemDetails/ItemDetailsPage'
 import LoginPage from './components/Login/LoginPage'
-import FavoriteListPage from './components/FavoriteList/FavoriteListPage'
+import WishListPage from './components/WishList/WishListPage'
 import MyOrdersPage from './components/MyOrder/MyOrdersPage'
 import './App.css'
 import { CheckSession } from './services/Auth'
@@ -17,12 +17,13 @@ import ConfirmMessage from './components/ConfirmMessage/ConfirmMessage'
 import Home from './components/Home page /homepage'
 import Nav from './components/Nav/Nav'
 import ItemsPage from './components/CategoryItemsPage/itemspage'
-import AllOrders from './components//AllOrders/AllOrdersPage'
+// import AllOrders from './components//AllOrders/AllOrdersPage'
 import AddItemsForm from './components/AddItems/AddItemsForm'
 import AddShopForm from './components/AddShop/AddShopForm'
 import ShopItemsPage from './components/ShopItems/ShopItemsPage'
 import UpdateItem from './components/UpdateItem/UpdateItemForm'
 import UpdatePassword from './components/Login/UpdatePassword'
+import OwnerOrdersPage from './components/OwnerOrders/OwnerOrdersPage'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -64,17 +65,18 @@ function App() {
             <Route path="/Register/:type" element={<RegistrationForm />} />
             <Route
               path="/favorites"
-              element={<FavoriteListPage userId={user ? user.id : null} />}
+              element={<WishListPage userId={user ? user.id : null} />}
             />{' '}
             <Route path="/orders" element={<MyOrdersPage />} />
             <Route path="/category-items/:id" element={<ItemsPage />} />{' '}
             <Route path="/confirm-message" element={<ConfirmMessage />} />
-            <Route path="/all-orders" element={<AllOrders />} />
+            {/* <Route path="/all-orders" element={<AllOrders />} /> */}
             <Route path="/add-items" element={<AddItemsForm />} />
             <Route path="/new-shop" element={<AddShopForm />} />
             <Route path="/:shopId/items" element={<ShopItemsPage />} />
             <Route path="/edit/:itemId" element={<UpdateItem />} />
             <Route path="/update-password" element={<UpdatePassword />} />
+            <Route path="/all-orders" element={<OwnerOrdersPage />} />
           </Routes>
         </main>
       </div>

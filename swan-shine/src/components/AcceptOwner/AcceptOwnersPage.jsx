@@ -6,9 +6,13 @@ import Client, { BASE_URL } from '../../services/api'
 const AcceptOwnersPage = () => {
   const [requests, setRequests] = useState([])
 
+  useEffect(() => {
+    getAcceptRequests()
+  }, [])
+
   const getAcceptRequests = async () => {
     try {
-      const response = await Client.get(`${BASE_URL}/users/admin/shop-owners`)
+      const response = await Client.get(`/users/admin/shop-owners`)
       const owners = response.data
 
       const ownerRequests = []
@@ -23,16 +27,9 @@ const AcceptOwnersPage = () => {
     }
   }
 
-  useEffect(() => {
-    getAcceptRequests()
-  }, [])
-
   const handleAccept = async (userId) => {
     try {
-      const response = await Client.post(
-        `${BASE_URL}/users/admin/accept-shop-owner/${userId}`
-      )
-
+      await Client.post(`/users/admin/accept-shop-owner/${userId}`)
       setRequests(requests.filter((request) => request._id !== userId))
     } catch (err) {
       console.error('Error accepting shop owner:', err)
@@ -41,8 +38,7 @@ const AcceptOwnersPage = () => {
 
   const handleReject = async (userId) => {
     try {
-      await Client.delete(`${BASE_URL}/users/admin/reject-shop-owner/${userId}`)
-
+      await Client.delete(`/users/admin/reject-shop-owner/${userId}`)
       setRequests(requests.filter((request) => request._id !== userId))
     } catch (err) {
       console.error('Error rejecting shop owner', err)

@@ -1,4 +1,3 @@
-// Rating.jsx
 import React from 'react'
 
 const Rating = ({ rating }) => {
