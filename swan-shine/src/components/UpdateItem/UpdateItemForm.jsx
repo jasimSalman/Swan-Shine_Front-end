@@ -4,33 +4,35 @@ import { useParams, useNavigate } from 'react-router-dom'
 import './UpdateItemForm.css'
 
 const UpdateItem = () => {
-  let navigate = useNavigate()
   const initialState = {
     name: '',
     image: '',
     price: 0,
     stock: 0
   }
+
+  let navigate = useNavigate()
   const [formValues, setFormValues] = useState(initialState)
   const { itemId } = useParams()
 
   useEffect(() => {
-    const fetchItemDetails = async () => {
-      try {
-        const response = await Client.get(`${BASE_URL}/items/show/${itemId}`)
-        const item = response.data
-        setFormValues({
-          name: item.name,
-          image: item.image,
-          price: item.price,
-          stock: item.stock
-        })
-      } catch (error) {
-        console.error('Error fetching place details:', error)
-      }
-    }
     fetchItemDetails()
   }, [itemId])
+
+  const fetchItemDetails = async () => {
+    try {
+      const response = await Client.get(`/items/show/${itemId}`)
+      const item = response.data
+      setFormValues({
+        name: item.name,
+        image: item.image,
+        price: item.price,
+        stock: item.stock
+      })
+    } catch (error) {
+      console.error('Error fetching place details:', error)
+    }
+  }
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -39,7 +41,7 @@ const UpdateItem = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await Client.put(`${BASE_URL}/items/${itemId}`, formValues)
+      await Client.put(`/items/${itemId}`, formValues)
       setFormValues(initialState)
       navigate('/my-shop')
     } catch (error) {

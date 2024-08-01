@@ -7,14 +7,17 @@ import './ItemDetailsPage.css'
 import Client, { BASE_URL } from '../../services/api'
 
 const ItemDetailsPage = () => {
+  const { id } = useParams()
+  const userId = localStorage.getItem('userId')
+  const userType = localStorage.getItem('userType')
+  const navigate = useNavigate()
   const [item, setItem] = useState(null)
   const [reviews, setReviews] = useState([])
   const [loading, setLoading] = useState(true)
-  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
-  const { id } = useParams()
-  const navigate = useNavigate()
-  const userId = localStorage.getItem('userId')
-  const userType = localStorage.getItem('userType')
+
+  useEffect(() => {
+    fetchItemDetails()
+  }, [id])
 
   const fetchItemDetails = async () => {
     try {
@@ -37,13 +40,9 @@ const ItemDetailsPage = () => {
     }
   }
 
-  useEffect(() => {
-    fetchItemDetails()
-  }, [id])
-
   const handleAddToCart = async (item) => {
     try {
-      await Client.post(`${BASE_URL}/cart/${userId}`, {
+      await Client.post(`/cart/${userId}`, {
         items: [{ item: item, quantity: 1 }]
       })
       navigate('/cart')
@@ -58,13 +57,12 @@ const ItemDetailsPage = () => {
       reviews: [...prevItem.reviews, review]
     }))
     setReviews((prevReviews) => [...prevReviews, review])
-    setIsReviewModalOpen(false)
     fetchReviews()
   }
 
-  const handleDelete = async (reviewId) => {
+  const handleDeleteReview = async (reviewId) => {
     try {
-      await Client.delete(`${BASE_URL}/items/reviews/${reviewId}`)
+      await Client.delete(`/items/reviews/${reviewId}`)
       setReviews(reviews.filter((review) => review._id !== reviewId))
     } catch (error) {
       console.error('Failed to delete review:', error)
@@ -85,10 +83,7 @@ const ItemDetailsPage = () => {
       <ItemDetailsCard
         item={item}
         onAddToCart={handleAddToCart}
-        onAddReview={() => setIsReviewModalOpen(true)}
-        onRequestClose={() => setIsReviewModalOpen(false)}
-        onReviewSubmitted={handleAddReview}
-        isOpen={isReviewModalOpen}
+        onAddReview={handleAddReview}
       />
 
       <div className="reviews-container">
@@ -104,7 +99,7 @@ const ItemDetailsPage = () => {
                 <p>{review.user.username}</p>
                 {userType === 'user' && userId === review.user._id && (
                   <button
-                    onClick={() => handleDelete(review._id)}
+                    onClick={() => handleDeleteReview(review._id)}
                     className="deleteReview"
                   >
                     Delete Review

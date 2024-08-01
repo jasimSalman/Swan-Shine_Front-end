@@ -31,7 +31,7 @@ const OrderCard = ({ order }) => {
               <div className="order-item-details">
                 <p>{item.item.name}</p>
                 <p>Quantity: {item.quantity}</p>
-                <p>{item.date}</p>
+                <p>{order.date}</p>
               </div>
             </div>
           </li>

@@ -1,4 +1,14 @@
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
 const ConfirmMessage = () => {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigate('/category')
+    }, 2000)
+  }, [])
+
   return (
     <div>
       <h1>

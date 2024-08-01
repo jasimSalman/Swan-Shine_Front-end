@@ -42,6 +42,7 @@ const UpdatePassword = () => {
             className="inputField"
           />
         </div>
+
         <div className="input-wrapper">
           <label htmlFor="newPassword" className="label">
             New Password:
@@ -56,6 +57,7 @@ const UpdatePassword = () => {
             className="inputField"
           />
         </div>
+
         <div className="input-wrapper">
           <label htmlFor="confirmPassword" className="label">
             Confirm New Password:
@@ -70,6 +72,7 @@ const UpdatePassword = () => {
             className="inputField"
           />
         </div>
+
         <button
           disabled={
             !formValues.username ||

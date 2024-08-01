@@ -7,7 +7,6 @@ import { useNavigate, Link } from 'react-router-dom'
 const LoginPage = ({ setUser }) => {
   let navigate = useNavigate()
   const initialState = { username: '', password: '' }
-  const ownerState = localStorage.getItem('ownerState')
 
   const [formValues, setFormValues] = useState(initialState)
 
@@ -25,7 +24,7 @@ const LoginPage = ({ setUser }) => {
       if (payload.type === 'user') {
         navigate('/category')
       } else if (payload.type === 'owner') {
-        if (ownerState) {
+        if (payload.state) {
           navigate('/my-shop')
         } else {
           navigate('/new-shop')

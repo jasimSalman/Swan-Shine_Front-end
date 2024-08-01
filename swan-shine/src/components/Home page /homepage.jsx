@@ -7,6 +7,7 @@ const Home = () => {
       <header className="header">
         <h1>SWAN SHINE</h1>
       </header>
+
       <div className="body">
         <div className="about-us">
           <h2>About Us</h2>
@@ -16,6 +17,7 @@ const Home = () => {
             and exceed your expectations.
           </p>
         </div>
+
         <div className="about-us">
           <h2>Check the gold price forecast before you buy</h2>
           <p>
@@ -32,7 +34,7 @@ const Home = () => {
             style={{ border: '0', overflow: 'hidden' }}
           ></iframe>
         </div>
-        <div className="gold-prices">
+        {/* <div className="gold-prices">
           <h2>Gold Prices</h2>
           <table>
             <thead>
@@ -65,7 +67,7 @@ const Home = () => {
               </tr>
             </tbody>
           </table>
-        </div>
+        </div> */}
       </div>
     </div>
   )

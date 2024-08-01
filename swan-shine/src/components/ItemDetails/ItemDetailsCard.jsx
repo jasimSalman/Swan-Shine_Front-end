@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Review from './Review'
 import './ItemDetailsPage.css'
-import Client, { BASE_URL } from '../../services/api'
+import Client from '../../services/api'
 import { Link } from 'react-router-dom'
 
 const ItemDetailsCard = ({ item, onAddToCart, onAddReview }) => {
@@ -20,16 +20,17 @@ const ItemDetailsCard = ({ item, onAddToCart, onAddReview }) => {
     onAddReview(review)
     setIsModalOpen(false)
   }
+
   const removeItem = async () => {
     try {
-      await Client.delete(`${BASE_URL}/items/${item._id}`)
+      await Client.delete(`/items/${item._id}`)
     } catch (error) {
       console.error('Failed to remove item:', error)
     }
   }
 
   return (
-    <div className="item-details-card">
+    <div className="item-details-card-details">
       {userType === 'owner' && (
         <>
           <button onClick={removeItem}>Remove Item</button>
@@ -39,7 +40,7 @@ const ItemDetailsCard = ({ item, onAddToCart, onAddReview }) => {
         </>
       )}
 
-      <img src={item.image} alt={item.name} className="item-image" />
+      <img src={item.image} alt={item.name} className="item-details-image" />
       <h2>{item.name}</h2>
       <p>Stock: {item.stock}</p>
       <p>Price: ${item.price}</p>

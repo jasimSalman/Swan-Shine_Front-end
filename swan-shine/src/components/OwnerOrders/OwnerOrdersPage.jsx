@@ -1,26 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import OrderCard from './OwnerOrderCard'
 import './OwnerOrders.css'
-import { BASE_URL } from '../../services/api'
-import axios from 'axios'
+import Client from '../../services/api'
 
 const OwnerOrdersPage = () => {
   const shopId = localStorage.getItem('shopId')
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
-    const getShopOrders = async () => {
-      try {
-        const response = await axios.get(
-          `${BASE_URL}/users/shop/:shopId/orders`
-        )
-        setOrders(response.data)
-      } catch (err) {
-        console.error('Error fetching orders', err)
-      }
-    }
     getShopOrders()
   }, [shopId])
+
+  const getShopOrders = async () => {
+    try {
+      const response = await Client.get(`/users/shop/orders/${shopId}`)
+      setOrders(response.data)
+    } catch (err) {
+      console.error('Error fetching orders', err)
+    }
+  }
 
   return (
     <div className="owner-orders-page">

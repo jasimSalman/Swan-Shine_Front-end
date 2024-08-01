@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import OrderCard from './OrderCard'
 import './MyOrdersPage.css'
-import Client, { BASE_URL } from '../../services/api'
+import Client from '../../services/api'
 
 const MyOrdersPage = () => {
   const userId = localStorage.getItem('userId')
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
-    const getShopOrders = async () => {
-      try {
-        const response = await Client.get(`${BASE_URL}/cart/orders/${userId}`)
-        setOrders(response.data)
-      } catch (err) {
-        console.error('Error fetching orders', err)
-      }
-    }
     getShopOrders()
   }, [userId])
+
+  const getShopOrders = async () => {
+    try {
+      const response = await Client.get(`/cart/orders/${userId}`)
+      setOrders(response.data)
+    } catch (err) {
+      console.error('Error fetching orders', err)
+    }
+  }
 
   return (
     <div className="my-orders-page">

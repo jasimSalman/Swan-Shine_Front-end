@@ -53,11 +53,7 @@ const Nav = ({ handleLogOut }) => {
     <nav className="navbar">
       <div className="logo-container">
         <Link to="/" aria-label="Home">
-          <img
-            src="https://media.discordapp.net/attachments/698597975387013153/1260797042435817542/Project_20240711061708.png?ex=6690a03f&is=668f4ebf&hm=2580f5f966bb673866cd0b8fafbde32c382d128ded3c0580da770c1631734541&=&format=webp&quality=lossless&width=288&height=253"
-            alt="Logo"
-            className="logo"
-          />
+          <img src="logo.png" alt="Logo" className="logo" />
         </Link>
       </div>
 
@@ -65,9 +61,14 @@ const Nav = ({ handleLogOut }) => {
         {userId ? (
           <div className="nav-section">
             {userType !== 'owner' && userType !== 'admin' && (
-              <Link to="/category" className="navButton">
-                Categories
-              </Link>
+              <>
+                <Link to="/category" className="navButton">
+                  Categories
+                </Link>
+                <Link to="/shops" className="navButton">
+                  All shops
+                </Link>
+              </>
             )}
             {renderUserLinks()}
             <Link onClick={handleLogOut} to="/" className="navButton">

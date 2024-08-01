@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react'
-import './CartPage.css'
+import { useNavigate } from 'react-router-dom'
 import CartItemsCard from '../Cart/CartItemsCard'
 import Client from '../../services/api'
-import { BASE_URL } from '../../services/api'
-import { useNavigate } from 'react-router-dom'
+import './CartPage.css'
 
 const CartPage = () => {
-  const id = localStorage.getItem('userId')
+  const userId = localStorage.getItem('userId')
   const navigate = useNavigate()
 
   const [cartItems, setCartItems] = useState([])
 
+  useEffect(() => {
+    getCartItems()
+  }, [userId])
+
+  useEffect(() => {
+    updateCartItems()
+  }, [cartItems])
+
   const getCartItems = async () => {
     try {
-      const res = await Client.get(`${BASE_URL}/cart/${id}`)
+      const res = await Client.get(`/cart/${userId}`)
       setCartItems(res.data)
     } catch (err) {
       console.log('Error fetching items cart:', err)
@@ -22,7 +29,7 @@ const CartPage = () => {
 
   const updateCartItems = async () => {
     try {
-      await Client.post(`${BASE_URL}/cart/${id}`, { items: cartItems })
+      await Client.post(`/cart/${userId}`, { items: cartItems })
     } catch (err) {
       console.log('Error updating items cart:', err)
     }
@@ -30,7 +37,7 @@ const CartPage = () => {
 
   const checkOut = async () => {
     try {
-      const res = await Client.put(`${BASE_URL}/cart/checkout/${id}`)
+      const res = await Client.put(`/cart/checkout/${userId}`)
       if (res) {
         navigate('/orders')
       }
@@ -41,19 +48,11 @@ const CartPage = () => {
 
   const removeItem = async (itemId) => {
     try {
-      await Client.delete(`${BASE_URL}/cart/${id}/${itemId}`)
+      await Client.delete(`/cart/${userId}/${itemId}`)
     } catch (err) {
       console.log('Error deleteing items cart:', err)
     }
   }
-
-  useEffect(() => {
-    getCartItems()
-  }, [id])
-
-  useEffect(() => {
-    updateCartItems()
-  }, [cartItems])
 
   const handleRemoveItem = (itemId) => {
     setCartItems(cartItems.filter((item) => item.item._id !== itemId))
@@ -87,7 +86,8 @@ const CartPage = () => {
               onUpdateQuantity={handleUpdateQuantity}
             />
           ))}
-          <div className="cart-total">Total: ${totalPrice}</div>
+
+          <div className="cart-total">Total: {totalPrice} BHD</div>
           <div className="cart-checkout">
             <button onClick={checkOut}>Proceed to Checkout</button>
           </div>

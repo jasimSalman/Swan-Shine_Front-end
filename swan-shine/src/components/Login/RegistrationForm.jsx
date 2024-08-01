@@ -22,7 +22,6 @@ const RegistrationForm = () => {
   const [formValues, setFormValues] = useState(initValues)
   const [password, setPassword] = useState('')
   const [matchPassword, setMatchPassword] = useState('')
-  const [validPass, setValidPass] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -37,10 +36,9 @@ const RegistrationForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (password !== matchPassword) {
-      setValidPass(false)
       return
     }
-    setValidPass(true)
+
     await RegisterUser({
       username: formValues.username,
       first_name: formValues.firstName,
