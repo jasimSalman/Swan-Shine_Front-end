@@ -1,35 +1,14 @@
-.map-container {
+.map {
   margin: 20px auto;
   padding: 20px;
-  border: 1px solid #c28400;
   border-radius: 10px;
-  width: 80%;
-  max-width: 1200px;
   height: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background-color: #1a1a1a;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  color: #fcd032;
 }
 
-.map-container h2 {
-  margin-bottom: 10px;
-  font-size: 1.8em;
-  color: #fcd032;
-  font-family: 'Arial', sans-serif;
-}
-
-.map-container p {
-  margin: 0;
-  font-size: 1.2em;
-  color: #fcd032;
-  font-family: 'Arial', sans-serif;
-}
-
-.map-container iframe {
+.map iframe {
   width: 100%;
   height: 100%;
   border: none;

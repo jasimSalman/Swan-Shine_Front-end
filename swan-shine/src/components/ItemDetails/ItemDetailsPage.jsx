@@ -91,12 +91,14 @@ const ItemDetailsPage = () => {
         {reviews.length === 0 ? (
           <p>No reviews available.</p>
         ) : (
-          <ul>
+          <ul className="reviews-list">
             {reviews.map((review) => (
               <li key={review._id}>
-                <p>{review.content}</p>
-                <Rating rating={review.rating} />
-                <p>{review.user.username}</p>
+                <div className="review-contents">
+                  <p>{review.user.username}</p>
+                  <p>{review.content}</p>
+                  <Rating rating={review.rating} />
+                </div>
                 {userType === 'user' && userId === review.user._id && (
                   <button
                     onClick={() => handleDeleteReview(review._id)}

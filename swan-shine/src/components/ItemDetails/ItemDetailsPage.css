@@ -1,10 +1,3 @@
-body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background-color: #121212;
-  color: #e1b12c;
-}
-
 .item-details-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -20,10 +13,10 @@ body {
   padding-bottom: 15px;
 }
 
-.item-details-card-details {
+.item-details-card-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -32,28 +25,62 @@ body {
   padding: 20px;
 }
 
+.item-card-details {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
 .item-details-image {
   position: relative;
-  width: 100%;
+  width: 20%;
   max-width: 600px;
   margin-bottom: 20px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
-.item-details-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 5px solid #2a2a2a;
-}
-
-.item-details-image img:hover {
+.item-details-image:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+.item-admin-buttons {
+  width: 40em;
+  display: flex;
+  align-self: center;
+}
+
+.item-admin-buttons button {
+  background-color: #d4af37;
+  color: #1c1c1c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  width: 40%;
+  opacity: 0.9;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+/* button {
+  background-color: #d4af37;
+  color: #1c1c1c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  width: 100%;
+  opacity: 0.9;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+button:hover {
+  background-color: #b08f26;
+  opacity: 1;
+} */
 /* .heart-icon {
   position: absolute;
   top: 10px;
@@ -122,13 +149,36 @@ body {
 .rating-container {
   margin-top: 40px;
   text-align: left;
-  width: 100%;
-  max-width: 800px;
   margin: 40px auto;
   background-color: #1f1f1f;
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reviews-list {
+  list-style-type: none;
+}
+.reviews-list li {
+  background-color: #2a2a2a;
+  padding: 0 1em;
+  display: flex;
+  margin: 23px 0;
+  height: 6em;
+  align-items: center;
+}
+
+.deleteReview {
+  background-color: #d4af37;
+  color: #1c1c1c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  width: 40%;
+  opacity: 0.9;
+  transition: background-color 0.3s, opacity 0.3s;
 }
 
 .reviews-container h2,

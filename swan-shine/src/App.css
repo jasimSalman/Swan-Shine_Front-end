@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: europa, sans-serif;
   background-color: #c28400;
   color: #ffffff;
 }
 
-.register-page {
+/* .register-page {
   max-width: 600px;
   margin: 50px auto;
   padding: 40px;
@@ -76,10 +76,10 @@ body {
 .color {
   color: #ffffff;
   text-decoration: none;
-}
+} */
 
-hr {
+/* hr {
   border: 1px solid #dfa81d;
   width: 80%;
   margin: 20px auto;
-}
+} */

@@ -5,8 +5,9 @@
   color: #d4af37;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  width: 90%;
-  margin: 50px auto;
+
+  /* width: 90%; */
+  /* margin: 50px auto; */
 }
 
 .all-shops-page h1 {

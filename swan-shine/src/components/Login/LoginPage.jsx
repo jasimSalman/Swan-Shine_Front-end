@@ -24,7 +24,7 @@ const LoginPage = ({ setUser }) => {
       if (payload.type === 'user') {
         navigate('/category')
       } else if (payload.type === 'owner') {
-        if (payload.state) {
+        if (payload.shop) {
           navigate('/my-shop')
         } else {
           navigate('/new-shop')
@@ -48,7 +48,7 @@ const LoginPage = ({ setUser }) => {
         <Link to="/update-password">
           <div className="font">Forget your password?</div>
         </Link>
-        <hr />
+        <hr className="link-break" />
         <div className="font">Don't have an accout?</div>
         <div className="felxSignin">
           <Link to="/register/user">
