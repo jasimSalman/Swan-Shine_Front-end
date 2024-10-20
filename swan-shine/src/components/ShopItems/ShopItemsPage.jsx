@@ -4,7 +4,6 @@ import { BASE_URL } from '../../services/api'
 import { useEffect, useState } from 'react'
 import ItemsCard from '../Shared/ItemsCard'
 import Map from '../Map/Map'
-import './ShopItemsPage.css'
 
 const ShopItemsPage = () => {
   const { shopId } = useParams()

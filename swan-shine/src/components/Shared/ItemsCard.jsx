@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import './ItemsCard.css'
 import Client, { BASE_URL } from '../../services/api'
+import { FaRegHeart, FaHeart } from 'react-icons/fa'
 
 const ItemsCard = ({ items, removeItemFromWishList }) => {
   const userType = localStorage.getItem('userType')
@@ -39,7 +40,10 @@ const ItemsCard = ({ items, removeItemFromWishList }) => {
             </div>
           </div>
           {location.pathname === '/favorites' && (
-            <button onClick={() => removeItemFromWishList(item._id)}>❌</button>
+            <FaHeart
+              onClick={() => removeItemFromWishList(item._id)}
+              className="delete-fav-item"
+            />
           )}
 
           {userType === 'user' && location.pathname !== '/favorites' && (
@@ -47,7 +51,7 @@ const ItemsCard = ({ items, removeItemFromWishList }) => {
               className="heart-icon"
               onClick={() => handleAddToWishList(item._id)}
             >
-              add
+              <FaRegHeart className="heart" />
             </span>
           )}
         </div>
