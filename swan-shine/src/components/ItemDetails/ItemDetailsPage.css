@@ -233,26 +233,48 @@ button:hover {
     font-size: 2.5em;
   }
 
-  .item-details h2 {
-    font-size: 2em;
-  }
-
-  .item-details p {
+  .inner-details h2 {
     font-size: 1em;
   }
 
-  .item-details button {
+  /* .item-details p {
     font-size: 1em;
-    padding: 10px 20px;
+  } */
+
+  .item-user-buttons,
+  .item-owner-buttons {
+    /* font-size: 1em;
+    padding: 10px 20px; */
+    width: 20em;
   }
 
   .reviews-container h2,
   .rating-container h2 {
     font-size: 2em;
   }
+
+  .reviews-container,
+  .review-contents-container {
+    padding: 0;
+  }
+
+  .review-details {
+    font-size: 0.8em;
+    /* flex-direction: column; */
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .review-contents-container {
+    flex-direction: column;
+  }
+
+  .deleteReview {
+    width: 100%;
+  }
 }
 
-.items-card {
+/* .items-card {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -276,4 +298,4 @@ button:hover {
   border-radius: 10px;
   width: 120px;
   height: auto;
-}
+} */

@@ -115,3 +115,36 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .order-item {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .order-item-details {
+    width: 100%; /* Full width under the image */
+
+    align-items: flex-start;
+    padding-top: 13px;
+  }
+
+  .order-item-details p {
+    text-align: center; /* Center text */
+  }
+
+  .order-card-footer-details {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-card-footer-details p {
+    margin: 0;
+  }
+
+  .order-item-details {
+    width: 100%;
+  }
+}
