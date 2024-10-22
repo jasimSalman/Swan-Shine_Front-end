@@ -26,11 +26,11 @@ const UpdatePassword = () => {
   }
 
   return (
-    <div className="login">
+    <div className="update-container">
       <form onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <label htmlFor="username" className="label">
-            Username:
+            Username
           </label>
           <input
             onChange={handleChange}
@@ -45,7 +45,7 @@ const UpdatePassword = () => {
 
         <div className="input-wrapper">
           <label htmlFor="newPassword" className="label">
-            New Password:
+            New Password
           </label>
           <input
             onChange={handleChange}
@@ -60,7 +60,7 @@ const UpdatePassword = () => {
 
         <div className="input-wrapper">
           <label htmlFor="confirmPassword" className="label">
-            Confirm New Password:
+            Confirm New Password
           </label>
           <input
             onChange={handleChange}

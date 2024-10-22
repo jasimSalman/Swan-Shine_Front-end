@@ -32,8 +32,8 @@ const AddItemsForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name" className="label">
+      <form onSubmit={handleSubmit} className="add-item-form">
+        <label htmlFor="name" className="add-item-labels">
           Item Name
         </label>
         <input
@@ -43,10 +43,10 @@ const AddItemsForm = () => {
           placeholder="Item Name"
           value={formValues.name}
           required
-          className="inputFeild"
+          className="add-item-input-field"
         />
 
-        <label htmlFor="reqCategory" className="label">
+        <label htmlFor="reqCategory" className="add-item-labels">
           Item Category
         </label>
         <select
@@ -54,7 +54,7 @@ const AddItemsForm = () => {
           id="reqCategory"
           value={formValues.reqCategory}
           onChange={handleChange}
-          className="inputFeild"
+          className="add-item-input-field"
         >
           <option value="Earrings">Earrings</option>
           <option value="Necklaces">Necklaces</option>
@@ -63,7 +63,7 @@ const AddItemsForm = () => {
           <option value="Anklets">Anklets</option>
         </select>
 
-        <label htmlFor="image" className="label">
+        <label htmlFor="image" className="add-item-labels">
           Item Image URL
         </label>
         <input
@@ -73,10 +73,10 @@ const AddItemsForm = () => {
           placeholder="Item Image URL"
           value={formValues.image}
           required
-          className="inputFeild"
+          className="add-item-input-field"
         />
 
-        <label htmlFor="price" className="label">
+        <label htmlFor="price" className="add-item-labels">
           Item Price
         </label>
         <input
@@ -86,10 +86,10 @@ const AddItemsForm = () => {
           placeholder="Item Price"
           value={formValues.price}
           required
-          className="inputFeild"
+          className="add-item-input-field"
         />
 
-        <label htmlFor="stock" className="label">
+        <label htmlFor="stock" className="add-item-labels">
           Stock
         </label>
         <input
@@ -99,7 +99,7 @@ const AddItemsForm = () => {
           placeholder="Stock"
           value={formValues.stock}
           required
-          className="inputFeild"
+          className="add-item-input-field"
         />
 
         <button
@@ -109,6 +109,7 @@ const AddItemsForm = () => {
             !formValues.price ||
             !formValues.stock
           }
+          className="add-items-button"
         >
           Add Item
         </button>

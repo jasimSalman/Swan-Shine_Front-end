@@ -23,7 +23,9 @@ const MyItemsPage = () => {
   return (
     <div className="my-items-page">
       <h1>My Items</h1>
-      <Link to={'/add-items'}>Add Item</Link>
+      <Link to={'/add-items'} className="add-item-button">
+        Add Item
+      </Link>
       <ItemsCard items={items} />
     </div>
   )

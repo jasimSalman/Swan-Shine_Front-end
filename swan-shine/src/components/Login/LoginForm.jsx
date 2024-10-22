@@ -5,7 +5,7 @@ const LoginForm = ({ handleChange, handleSubmit, formValues }) => {
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <label>
-        Username:
+        Username
         <input
           onChange={handleChange}
           type="text"
@@ -16,7 +16,7 @@ const LoginForm = ({ handleChange, handleSubmit, formValues }) => {
         />
       </label>
       <label>
-        Password:
+        Password
         <input
           onChange={handleChange}
           type="password"

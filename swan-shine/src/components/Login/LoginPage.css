@@ -40,8 +40,15 @@ a {
 }
 
 .login-form input {
-  height: 2em;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #1c1c1c;
+  color: #d4af37;
+  width: 100%;
   font-size: 1em;
+  margin-bottom: 15px;
+  box-sizing: border-box;
 }
 
 .login-form button {

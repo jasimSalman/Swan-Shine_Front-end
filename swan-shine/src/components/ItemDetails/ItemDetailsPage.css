@@ -45,23 +45,40 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.item-admin-buttons {
+.item-user-buttons,
+.item-owner-buttons {
   width: 40em;
   display: flex;
   align-self: center;
 }
 
-.item-admin-buttons button {
+.item-user-buttons button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
   background-color: #d4af37;
   color: #1c1c1c;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1.2em;
-  width: 40%;
-  opacity: 0.9;
-  transition: background-color 0.3s, opacity 0.3s;
+  transition: background-color 0.3s;
+}
+
+.inner-button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #d4af37;
+  color: #1c1c1c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.inner-button:hover,
+.item-user-buttons button:hover {
+  background-color: #b08f26;
 }
 
 /* button {
@@ -154,18 +171,36 @@ button:hover {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  width: 100%;
+  max-width: 72em;
 }
 
 .reviews-list {
-  list-style-type: none;
-}
-.reviews-list li {
-  background-color: #2a2a2a;
-  padding: 0 1em;
+  /* padding: 0 1em; */
   display: flex;
+  flex-direction: column;
   margin: 23px 0;
-  height: 6em;
   align-items: center;
+  width: 100%;
+}
+
+.review-contents-container {
+  background-color: #2a2a2a;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.review-details {
+  display: flex;
+  align-items: center;
+  /* background: red; */
+  width: 58%;
+  justify-content: space-between;
 }
 
 .deleteReview {
@@ -176,7 +211,7 @@ button:hover {
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.2em;
-  width: 40%;
+  width: 15%;
   opacity: 0.9;
   transition: background-color 0.3s, opacity 0.3s;
 }

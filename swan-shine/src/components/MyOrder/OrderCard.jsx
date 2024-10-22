@@ -15,13 +15,12 @@ const OrderCard = ({ order }) => {
   }
 
   return (
-    <div className="order-card">
-      <h2>{order.user.username}</h2>
-      <p>Total Price: {order.total_price}</p>
-      <ul>
-        {order.items.map((item) => (
-          <li key={item.item._id}>
-            <div className="order-item">
+    <div>
+      {/* <h2>{order.user.username}</h2> */}
+      <div className="order-card">
+        <ul className="order-details">
+          {order.items.map((item) => (
+            <li key={item.item._id} className="order-item">
               <img
                 src={item.item.image}
                 alt={item.item.name}
@@ -30,13 +29,20 @@ const OrderCard = ({ order }) => {
               />
               <div className="order-item-details">
                 <p>{item.item.name}</p>
-                <p>Quantity: {item.quantity}</p>
-                <p>{order.date}</p>
+                <p>Price {item.item.price} BD</p>
+                <p>Quantity {item.quantity}</p>
               </div>
-            </div>
-          </li>
-        ))}
-      </ul>
+            </li>
+          ))}
+        </ul>
+        <div className="order-card-footer-details">
+          <p>Total Price: {order.total_price} DB</p>
+          <p>
+            Ordered Date: {new Date(order.date).toLocaleDateString()} at{' '}
+            {new Date(order.date).toLocaleTimeString()}
+          </p>
+        </div>
+      </div>
 
       {isModalOpen && (
         <div className="modal" onClick={handleCloseModal}>

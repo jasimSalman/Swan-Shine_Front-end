@@ -91,10 +91,10 @@ const ItemDetailsPage = () => {
         {reviews.length === 0 ? (
           <p>No reviews available.</p>
         ) : (
-          <ul className="reviews-list">
+          <div className="reviews-list">
             {reviews.map((review) => (
-              <li key={review._id}>
-                <div className="review-contents">
+              <div key={review._id} className="review-contents-container">
+                <div className="review-details">
                   <p>{review.user.username}</p>
                   <p>{review.content}</p>
                   <Rating rating={review.rating} />
@@ -107,9 +107,9 @@ const ItemDetailsPage = () => {
                     Delete Review
                   </button>
                 )}
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
         )}
       </div>
     </div>

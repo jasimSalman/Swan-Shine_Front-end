@@ -1,11 +1,4 @@
-/* body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #1c1c1c;
-  color: #d4af37;
-}
-
-form {
+.add-item-form {
   max-width: 600px;
   margin: 50px auto;
   padding: 20px;
@@ -16,14 +9,14 @@ form {
   text-align: left;
 }
 
-.label {
+.add-item-labels {
   display: block;
   margin-bottom: 5px;
   font-size: 1.2em;
   color: #d4af37;
 }
 
-.inputFeild {
+.add-item-input-field {
   padding: 10px;
   border: 1px solid #444;
   border-radius: 5px;
@@ -35,7 +28,7 @@ form {
   margin-bottom: 20px;
 }
 
-button {
+.add-items-button {
   background-color: #d4af37;
   color: #1c1c1c;
   border: none;
@@ -48,12 +41,12 @@ button {
   transition: background-color 0.3s, opacity 0.3s;
 }
 
-button:hover {
+.add-items-button:hover {
   background-color: #b08f26;
   opacity: 1;
 }
 
-button:disabled {
+.add-items-button:disabled {
   background-color: #b08f26;
   cursor: not-allowed;
-} */
+}

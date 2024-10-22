@@ -1,14 +1,5 @@
-/* OwnerOrders.css */
-
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #1c1c1c;
-  color: #d4af37;
-}
-
 .owner-orders-page {
-  max-width: 800px;
+  max-width: 60em;
   margin: 100px auto;
   padding: 20px;
   text-align: center;
@@ -26,46 +17,6 @@ body {
   padding-bottom: 10px;
 }
 
-.order-card {
-  background-color: #1c1c1c;
-  border: 1px solid #444;
-  border-radius: 5px;
-  padding: 20px;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.order {
-  border-bottom: 1px solid #444;
-  padding: 10px 0;
-}
-
-.order:last-child {
-  border-bottom: none;
-}
-
-.order img {
-  max-width: 100px;
-  border-radius: 5px;
-}
-
-.order p {
-  margin: 5px 0;
-  color: #d4af37;
-}
-
-.order ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 10px 0 0 0;
-}
-
-.order ul li {
-  display: flex;
-  justify-content: space-between;
-  color: #d4af37;
-}
-
 @media (max-width: 768px) {
   .owner-orders-page {
     margin: 50px auto;
@@ -74,17 +25,5 @@ body {
 
   .owner-orders-page h1 {
     font-size: 2em;
-  }
-
-  .order-card {
-    padding: 15px;
-  }
-
-  .order img {
-    max-width: 80px;
-  }
-
-  .order ul li p {
-    font-size: 0.9em;
   }
 }
