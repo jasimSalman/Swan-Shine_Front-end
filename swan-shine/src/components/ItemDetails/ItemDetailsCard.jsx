@@ -31,27 +31,30 @@ const ItemDetailsCard = ({ item, onAddToCart, onAddReview }) => {
 
   return (
     <div className="item-details-card-container">
-      {userType === 'owner' && (
-        <>
-          <button onClick={removeItem}>Remove Item</button>
-          <Link to={`/edit/${item._id}`}>
-            <button>update Item</button>
-          </Link>
-        </>
-      )}
-
       <div className="item-card-details">
         <img src={item.image} alt={item.name} className="item-details-image" />
         <div className="inner-details">
           <h2>{item.name}</h2>
           <p>Stock: {item.stock}</p>
-          <p>Price: ${item.price}</p>
+          <p>Price: {item.price} BD</p>
         </div>
       </div>
+
       {userType === 'user' && (
-        <div className="item-admin-buttons">
+        <div className="item-user-buttons">
           <button onClick={() => onAddToCart(item)}>Add to Cart</button>
           <button onClick={handleOpenModal}>Add Reviews</button>
+        </div>
+      )}
+
+      {userType === 'owner' && (
+        <div className="item-owner-buttons">
+          <button onClick={removeItem} className="inner-button">
+            Remove Item
+          </button>
+          <Link to={`/edit/${item._id}`} className="inner-button">
+            update Item
+          </Link>
         </div>
       )}
 

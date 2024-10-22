@@ -51,8 +51,8 @@ const UpdateItem = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="placeName" className="label">
+      <form onSubmit={handleSubmit} className="update-item-form">
+        <label htmlFor="placeName" className="update-item-label">
           Item Name
         </label>
         <input
@@ -62,10 +62,10 @@ const UpdateItem = () => {
           placeholder="Item Name"
           value={formValues.name}
           required
-          className="inputFeild"
+          className="update-item-inputFeild"
         />
 
-        <label htmlFor="placePoster" className="label">
+        <label htmlFor="placePoster" className="update-item-label">
           Item Image
         </label>
         <input
@@ -75,9 +75,9 @@ const UpdateItem = () => {
           placeholder="Item Image URL"
           value={formValues.image}
           required
-          className="inputFeild"
+          className="update-item-inputFeild"
         />
-        <label htmlFor="placePrice" className="label">
+        <label htmlFor="placePrice" className="update-item-label">
           Item Price
         </label>
         <input
@@ -87,9 +87,9 @@ const UpdateItem = () => {
           placeholder="Item Price"
           value={formValues.price}
           required
-          className="inputFeild"
+          className="update-item-inputFeild"
         />
-        <label htmlFor="placeDescription" className="label">
+        <label htmlFor="placeDescription" className="update-item-label">
           Stock
         </label>
         <input
@@ -98,7 +98,7 @@ const UpdateItem = () => {
           placeholder="Stock"
           value={formValues.stock}
           required
-          className="inputFeild"
+          className="update-item-inputFeild"
         />
 
         <button

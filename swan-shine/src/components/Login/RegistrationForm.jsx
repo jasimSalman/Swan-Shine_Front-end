@@ -56,7 +56,12 @@ const RegistrationForm = () => {
 
   return (
     <form className="registration-form" onSubmit={handleSubmit}>
-      <h1>User Registration</h1>
+      {type === 'owner' ? (
+        <h1>Owner Registration</h1>
+      ) : (
+        <h1>User Registration</h1>
+      )}
+
       <label htmlFor="username" className="label">
         Username
       </label>
