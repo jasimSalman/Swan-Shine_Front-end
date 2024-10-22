@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import OrderCard from './OwnerOrderCard'
+import OrderCard from '../MyOrder/OrderCard'
 import './OwnerOrders.css'
 import Client from '../../services/api'
 
@@ -23,7 +23,13 @@ const OwnerOrdersPage = () => {
   return (
     <div className="owner-orders-page">
       <h1>All Shop's Orders</h1>
-      <OrderCard orders={orders} />
+      {orders.length > 0 ? (
+        orders
+          .filter((order) => order.items.length > 0)
+          .map((order) => <OrderCard key={order._id} order={order} />)
+      ) : (
+        <p>You have no orders yet.</p>
+      )}
     </div>
   )
 }
